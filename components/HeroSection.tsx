@@ -39,7 +39,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+    <section className="relative h-screen flex items-end justify-center text-center text-white overflow-hidden pb-32">
       {/* Background images */}
       <AnimatePresence>
         {slides.map((slide, index) =>
@@ -99,7 +99,7 @@ const HeroSection = () => {
               boxShadow: "0px 0px 20px rgba(37,150,190,0.6)",
             }}
             whileTap={{ scale: 0.95 }}
-            className="bg-brand hover:bg-brand-dark text-white px-8 py-3 rounded-lg font-semibold text-lg"
+            className="bg-[#2596be] hover:bg-[#1e83a7] text-white px-8 py-3 rounded-lg font-semibold text-lg"
           >
             Explore Properties
           </MotionButton>

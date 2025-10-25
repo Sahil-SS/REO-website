@@ -1,4 +1,5 @@
 import AboutBrief from '@/components/AboutBrief'
+import BenefitsSection from '@/components/BenefitsSection'
 import HeroSection from '@/components/HeroSection'
 import KeyHighlights from '@/components/KeyHighlights'
 import Navbar from '@/components/Navbar'
@@ -11,6 +12,7 @@ const page = () => {
       <Navbar />
       <HeroSection />
       <AboutBrief />
+      <BenefitsSection />
       <KeyHighlights />
       <PortfolioSection />
     </main>
