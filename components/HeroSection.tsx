@@ -14,13 +14,13 @@ const slides = [
       "RERI Group is dedicated to creating sustainable workspaces that positively impact communities and individuals.",
   },
   {
-    src: "/images/property2.jpg",
+    src: "/images/mumbai.jpg",
     tagline: "Over 175 Tenants Across Metro Cities",
     description:
       "Our portfolio includes multinational and Indian corporations thriving in our premium workspaces.",
   },
   {
-    src: "/images/property3.jpg",
+    src: "/images/delhi.jpg",
     tagline: "Generating Rental Income with Confidence",
     description:
       "We guarantee our shareholders support in generating rental income from metropolitan cities, making dreams possible.",
