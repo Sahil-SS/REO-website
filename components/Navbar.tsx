@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -18,27 +19,60 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToFooter = () => {
+    const footer = document.getElementById("contact");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 w-full z-50 bg-white shadow-md border-b border-gray-100 transition-all duration-500"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-white shadow-md border-b border-gray-100"
+          : "bg-white/90 backdrop-blur-md"
+      }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <motion.div
+        className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2 md:py-3"
+        animate={{ scale: scrolled ? 1.02 : 1 }}
+        transition={{ type: "spring", stiffness: 120, damping: 20 }}
+      >
         {/* Left: Logo */}
-        <Link href="/" className="text-2xl font-bold tracking-wide text-[#2596be]">
-          RERI Group
+        <Link href="/" className="flex items-center space-x-3">
+          <Image
+            src="/images/logo.png"
+            alt="REO Developments Logo"
+            width={160}
+            height={70}
+            className="object-contain"
+          />
         </Link>
 
-        {/* Right: Desktop Nav */}
+        {/* Right: Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8 text-gray-800 font-medium">
-          <Link href="/" className="hover:text-[#2596be] transition">
+          <Link href="/" className="hover:text-[#1C2B5B] transition-colors duration-300">
             Home
           </Link>
 
-          <Link href="/who-we-are" className="hover:text-[#2596be] transition">
+          <Link href="/about" className="hover:text-[#1C2B5B] transition-colors duration-300">
             Who We Are
+          </Link>
+
+          <Link href="/coming-soon" className="hover:text-[#1C2B5B] transition-colors duration-300">
+            Invest
+          </Link>
+
+          <Link href="/coming-soon" className="hover:text-[#1C2B5B] transition-colors duration-300">
+            Projects
+          </Link>
+
+          <Link href="/coming-soon" className="hover:text-[#1C2B5B] transition-colors duration-300">
+            Loan
           </Link>
 
           {/* Portals Dropdown */}
@@ -47,123 +81,119 @@ const Navbar = () => {
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <button className="flex items-center gap-1 hover:text-[#2596be] transition">
+            <button className="flex items-center gap-1 hover:text-[#1C2B5B] transition-colors duration-300">
               Portals <ChevronDown className="w-4 h-4" />
             </button>
-
-            {/* Dropdown menu */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: dropdownOpen ? 1 : 0, y: dropdownOpen ? 0 : -10 }}
-              transition={{ duration: 0.2 }}
+              animate={{
+                opacity: dropdownOpen ? 1 : 0,
+                y: dropdownOpen ? 0 : -10,
+              }}
+              transition={{ duration: 0.25 }}
               className={`absolute top-8 left-0 bg-white shadow-lg rounded-md border border-gray-100 py-2 w-48 ${
-                dropdownOpen ? "visible" : "invisible"
+                dropdownOpen ? "visible opacity-100" : "invisible opacity-0"
               }`}
             >
               <Link
-                href="/tenant-portal"
-                className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
+                href="/coming-soon"
+                className="block px-4 py-2 hover:bg-gray-50 hover:text-[#1C2B5B] transition"
               >
                 Tenant Portal
               </Link>
               <Link
-                href="/owner-portal"
-                className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
+                href="/coming-soon"
+                className="block px-4 py-2 hover:bg-gray-50 hover:text-[#1C2B5B] transition"
               >
                 Owner Portal
               </Link>
             </motion.div>
           </div>
 
-          <Link href="/invest" className="hover:text-[#2596be] transition">
-            Invest
-          </Link>
-
-          <Link href="/projects" className="hover:text-[#2596be] transition">
-            Projects
-          </Link>
-
-          <Link href="/loan" className="hover:text-[#2596be] transition">
-            Loan
-          </Link>
-
-          <Link href="/contact-us">
-            <Button className="bg-[#2596be] text-white hover:bg-[#1e83a7] transition">
-              Contact Us
-            </Button>
-          </Link>
+          <Button
+            onClick={scrollToFooter}
+            className="bg-[#7A1C1C] text-white hover:bg-[#611515] rounded-xl px-5 transition"
+          >
+            Contact Us
+          </Button>
         </div>
 
         {/* Mobile Menu */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <HiOutlineMenu className="w-6 h-6 text-gray-800 cursor-pointer" />
+              <HiOutlineMenu className="w-7 h-7 text-gray-800 cursor-pointer" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-72 p-6 flex flex-col">
-              <div className="flex justify-between items-center mb-8">
-                <h2 className="text-xl font-bold text-[#2596be]">Menu</h2>
+            <SheetContent side="right" className="w-72 p-6 flex flex-col bg-white">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-bold text-[#1C2B5B]">Menu</h2>
                 <SheetClose asChild>
                   <HiOutlineX className="w-6 h-6 cursor-pointer" />
                 </SheetClose>
               </div>
 
-              {/* Mobile Links */}
-              <div className="flex flex-col space-y-6 mb-8">
+              <div className="flex flex-col space-y-6 mb-8 text-gray-800 font-medium">
                 <SheetClose asChild>
-                  <Link href="/" className="text-lg hover:text-[#2596be] transition">
+                  <Link href="/" className="text-lg hover:text-[#1C2B5B] transition">
                     Home
                   </Link>
                 </SheetClose>
+
                 <SheetClose asChild>
-                  <Link href="/who-we-are" className="text-lg hover:text-[#2596be] transition">
+                  <Link href="/about" className="text-lg hover:text-[#1C2B5B] transition">
                     Who We Are
                   </Link>
                 </SheetClose>
 
-                {/* Portals Dropdown */}
+                <SheetClose asChild>
+                  <Link href="/coming-soon" className="text-lg hover:text-[#1C2B5B] transition">
+                    Invest
+                  </Link>
+                </SheetClose>
+
+                <SheetClose asChild>
+                  <Link href="/coming-soon" className="text-lg hover:text-[#1C2B5B] transition">
+                    Projects
+                  </Link>
+                </SheetClose>
+
+                <SheetClose asChild>
+                  <Link href="/coming-soon" className="text-lg hover:text-[#1C2B5B] transition">
+                    Loan
+                  </Link>
+                </SheetClose>
+
+                {/* Mobile Portals */}
                 <div className="flex flex-col space-y-2">
-                  <span className="text-lg font-medium text-gray-800">Portals</span>
+                  <span className="text-lg font-semibold text-gray-900">Portals</span>
                   <div className="ml-4 flex flex-col space-y-2 text-gray-700">
                     <SheetClose asChild>
-                      <Link href="/tenant-portal" className="hover:text-[#2596be]">
+                      <Link href="/coming-soon" className="hover:text-[#1C2B5B]">
                         Tenant Portal
                       </Link>
                     </SheetClose>
                     <SheetClose asChild>
-                      <Link href="/owner-portal" className="hover:text-[#2596be]">
+                      <Link href="/coming-soon" className="hover:text-[#1C2B5B]">
                         Owner Portal
                       </Link>
                     </SheetClose>
                   </div>
                 </div>
-
-                <SheetClose asChild>
-                  <Link href="/invest" className="text-lg hover:text-[#2596be] transition">
-                    Invest
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link href="/projects" className="text-lg hover:text-[#2596be] transition">
-                    Projects
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link href="/loan" className="text-lg hover:text-[#2596be] transition">
-                    Loan
-                  </Link>
-                </SheetClose>
               </div>
 
+              {/* Mobile Contact Us */}
               <SheetClose asChild>
-                <Button className="bg-[#2596be] text-white hover:bg-[#1e83a7] w-full">
-                  <Link href="/contact-us">Contact Us</Link>
+                <Button
+                  onClick={scrollToFooter}
+                  className="bg-[#7A1C1C] text-white hover:bg-[#611515] w-full rounded-xl"
+                >
+                  Contact Us
                 </Button>
               </SheetClose>
             </SheetContent>
           </Sheet>
         </div>
-      </div>
+      </motion.div>
     </motion.nav>
   );
 };

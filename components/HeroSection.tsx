@@ -9,21 +9,21 @@ const MotionButton = motion(Button);
 const slides = [
   {
     src: "/images/property1.jpg",
-    tagline: "Where Quality Meets Opportunity!!",
+    tagline: "Where Quality Meets Opportunity.",
     description:
-      "RERI Group is dedicated to creating sustainable workspaces that positively impact communities and individuals.",
+      "REO Developments is dedicated to creating sustainable ecosystems — workspaces that uplift individuals, communities, and the environment.",
   },
   {
     src: "/images/mumbai.jpg",
-    tagline: "Over 175 Tenants Across Metro Cities",
+    tagline: "Over 175 Tenants Across Metro Cities.",
     description:
-      "Our portfolio includes multinational and Indian corporations thriving in our premium workspaces.",
+      "Our portfolio proudly hosts multinational and Indian corporations thriving in our premium workspaces.",
   },
   {
     src: "/images/delhi.jpg",
-    tagline: "Generating Rental Income with Confidence",
+    tagline: "Generating Rental Income with Confidence.",
     description:
-      "We guarantee our shareholders support in generating rental income from metropolitan cities, making dreams possible.",
+      "We empower our investors and partners to achieve long-term, sustainable growth through reliable real estate investments.",
   },
 ];
 
@@ -33,44 +33,48 @@ const HeroSection = () => {
   useEffect(() => {
     const timer = setInterval(
       () => setCurrent((prev) => (prev + 1) % slides.length),
-      7000 // change every 7 seconds
+      7000
     );
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <section className="relative h-screen flex items-end justify-center text-center text-white overflow-hidden pb-32">
-      {/* Background images */}
+    <section className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+      {/* Background slideshow */}
       <AnimatePresence>
         {slides.map((slide, index) =>
           index === current ? (
-            <motion.img
+            <motion.div
               key={index}
-              src={slide.src}
-              alt={`Slide ${index + 1}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.5 }}
-              className="absolute inset-0 w-full h-full object-cover z-0"
+              className="absolute inset-0 z-0"
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              style={{
+                backgroundImage: `url(${slide.src})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             />
           ) : null
         )}
       </AnimatePresence>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10" />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 z-10" />
 
-      {/* Hero Text */}
+      {/* Hero Content */}
       <motion.div
-        className="z-20 px-6 max-w-3xl"
+        className="relative z-20 px-6 max-w-3xl text-center translate-y-28"
+        // ⬆️ was translate-y-16 before — now lowered ~112px
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         <motion.h1
           key={slides[current].tagline}
-          className="text-4xl md:text-6xl font-bold mb-4"
+          className="text-4xl md:text-6xl font-bold mb-4 leading-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -80,7 +84,7 @@ const HeroSection = () => {
 
         <motion.p
           key={slides[current].description}
-          className="text-gray-200 mb-8 text-lg md:text-xl"
+          className="text-gray-200 mb-8 text-lg md:text-xl font-light"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -96,15 +100,18 @@ const HeroSection = () => {
           <MotionButton
             whileHover={{
               scale: 1.05,
-              boxShadow: "0px 0px 20px rgba(37,150,190,0.6)",
+              boxShadow: "0 0 20px rgba(122, 28, 28, 0.4)",
             }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#2596be] hover:bg-[#1e83a7] text-white px-8 py-3 rounded-lg font-semibold text-lg"
+            whileTap={{ scale: 0.96 }}
+            className="bg-[#7A1C1C] hover:bg-[#611515] text-white px-8 py-3 rounded-xl font-semibold text-lg shadow-md transition-all duration-300"
           >
             Explore Properties
           </MotionButton>
         </motion.div>
       </motion.div>
+
+      {/* Bottom fade overlay */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/70 to-transparent z-10" />
     </section>
   );
 };

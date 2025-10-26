@@ -1,0 +1,242 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Building2, Users, Handshake } from "lucide-react";
+
+const AboutPage = () => {
+  const stats = [
+    { label: "Years of Experience", value: "15+" },
+    { label: "Tenants Served", value: "175+" },
+    { label: "Projects Completed", value: "50+" },
+    { label: "Metro Cities", value: "4+" },
+  ];
+
+  const locations = [
+    { city: "Bangalore", img: "/images/bangalore.jpg" },
+    { city: "Mumbai", img: "/images/mumbai.jpg" },
+    { city: "Delhi", img: "/images/delhi.jpg" },
+    { city: "Pune", img: "/images/pune.jpg" },
+  ];
+
+  const icons = [
+    {
+      icon: <Building2 className="w-10 h-10 text-[#7A1C1C]" />,
+      title: "Premium Infrastructure",
+      desc: "Architecturally inspiring, energy-efficient spaces built to global standards.",
+    },
+    {
+      icon: <Users className="w-10 h-10 text-[#7A1C1C]" />,
+      title: "Trusted Partnerships",
+      desc: "We collaborate with top multinational and Indian corporations for long-term growth.",
+    },
+    {
+      icon: <Handshake className="w-10 h-10 text-[#7A1C1C]" />,
+      title: "Guaranteed Returns",
+      desc: "Assured rental income through well-managed and transparent investment models.",
+    },
+  ];
+
+  return (
+    <div className="bg-linear-to-b from-white to-gray-50 text-[#1C2B5B]">
+      {/* HERO SECTION */}
+      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/images/property1.jpg"
+          alt="About REO Developments"
+          fill
+          className="object-cover brightness-[0.6]"
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center text-white z-10 px-6"
+        >
+          <h1 className="text-3xl md:text-4xl font-semibold mb-2 tracking-tight font-extrabold">
+            REO Developments
+          </h1>
+          <h3 className="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
+            Building Spaces that Inspire Growth
+          </h3>
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+            At{" "}
+            <span className="font-semibold text-white">REO Developments</span>,
+            we create sustainable and dynamic workspaces designed to empower
+            people and businesses.
+          </p>
+        </motion.div>
+      </section>
+
+{/* OUR STORY / WHO WE ARE */}
+<section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+  {/* Text Content */}
+  <motion.div
+    initial={{ x: -50, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className="space-y-6"
+  >
+    <h2 className="text-4xl md:text-5xl font-bold mb-4">
+      Who <span className="text-[#7A1C1C]">We Are</span>
+    </h2>
+
+    <p className="text-gray-700 leading-relaxed text-lg">
+      <span className="font-semibold text-[#7A1C1C]">Real Estate Opportunity</span> possesses the resources and expertise necessary to assist you in achieving your investment goals. Alongside our work with commercial properties, we have significant experience managing challenging Class B and C low-income properties.
+    </p>
+
+    <p className="text-gray-700 leading-relaxed text-lg">
+      Always prioritizing the bottom line, we provide opportunities to explore a diverse range of unique investment options while reducing expenses and enhancing potential returns.
+    </p>
+
+    <p className="text-gray-700 leading-relaxed text-lg">
+      With our extensive experience in the markets we serve, we excel at identifying opportunities and helping our clients capitalize on them. Whether you are a new or seasoned investor, you can rely on us to achieve the results you desire.
+    </p>
+
+    <div className="p-6 bg-gradient-to-r from-[#FFE5E5] to-[#FFD6D6] border-l-4 border-[#7A1C1C] rounded-xl shadow-lg">
+      <p className="text-[#1C2B5B] font-medium leading-relaxed">
+        “We don’t just build properties — we build ecosystems that sustain businesses and communities for generations.”
+      </p>
+    </div>
+  </motion.div>
+
+  {/* Image Content */}
+  <motion.div
+    initial={{ x: 50, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className="relative h-[420px] rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500"
+  >
+    <Image
+      src="/images/bangalore.jpg"
+      alt="REO Office"
+      fill
+      className="object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+  </motion.div>
+</section>
+
+
+      {/* STATS SECTION */}
+      <section className="relative py-16 bg-gradient-to-r from-[#7A1C1C] to-[#B31E1E] text-white overflow-hidden">
+        {/* Decorative gradient circles */}
+        <div className="absolute top-[-30px] left-[-30px] w-24 h-24 bg-white/10 rounded-full animate-pulse-slow"></div>
+        <div className="absolute bottom-[-40px] right-[-40px] w-32 h-32 bg-white/10 rounded-full animate-pulse-slow"></div>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="p-6 rounded-xl bg-white/10 backdrop-blur-sm shadow-lg hover:shadow-2xl transition-all duration-300"
+            >
+              <h3 className="text-4xl md:text-5xl font-extrabold mb-1 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-white">
+                {stat.value}
+              </h3>
+              <p className="text-sm opacity-90">{stat.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* OUR VALUES */}
+      <section className="max-w-7xl mx-auto px-6 py-24 text-center">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Our <span className="text-[#7A1C1C]">Core Values</span>
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {icons.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.2 }}
+              className="bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100"
+            >
+              <div className="flex justify-center mb-6">{item.icon}</div>
+              <h3 className="text-xl font-semibold text-[#1C2B5B] mb-3">
+                {item.title}
+              </h3>
+              <p className="text-gray-600">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* OFFICE LOCATIONS */}
+      <section className="bg-gray-100 py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Our <span className="text-[#7A1C1C]">Presence</span> Across India
+          </motion.h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {locations.map((loc, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="relative overflow-hidden rounded-2xl shadow-md group cursor-pointer"
+              >
+                <Image
+                  src={loc.img}
+                  alt={loc.city}
+                  width={400}
+                  height={250}
+                  className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300 flex items-center justify-center">
+                  <p className="text-white text-lg font-semibold">{loc.city}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="py-12 bg-linear-to-r from-[#7A1C1C] to-[#B31E1E] text-white text-center relative overflow-hidden">
+        {/* Decorative accent line */}
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-white rounded-full mt-4 opacity-50"></div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-2xl mx-auto px-4"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-md">
+            Partner With <span className="text-white">REO Developments</span>
+          </h2>
+          <p className="text-white/90 mb-6 text-base md:text-lg drop-shadow-sm">
+            Let’s create sustainable, smart, and future-ready spaces together.
+          </p>
+          <a href="#footer"></a>
+        </motion.div>
+
+        {/* Decorative gradient circles for subtle flair */}
+        <div className="absolute top-[-30px] left-[-30px] w-20 h-20 bg-white/10 rounded-full"></div>
+        <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-white/10 rounded-full"></div>
+      </section>
+    </div>
+  );
+};
+
+export default AboutPage;

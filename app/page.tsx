@@ -7,21 +7,26 @@ import PortfolioSection from '@/components/PortfolioSection'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
 import React from 'react'
-import AboutRERIGroup from '@/components/ui/AboutRERIGroup' // Import is correct
+import LoadingSpinner from '@/components/LoadingSpinner'
+import TestimonialsSection from '@/components/TestimonialsSection'
+import Gallery from '@/components/Gallery'
+import AboutREODevelopments from '@/components/About REO DevelopmentsCard'
 
 const page = () => {
   return (
     <main>
       <Navbar />
       <HeroSection />
-      
-      {/* The existing brief About Us component
-      */}
+      <TestimonialsSection />
+      <Gallery />
       <AboutBrief />
       <KeyHighlights />
+      <BenefitsSection />
+      <AboutREODevelopments />
       <PortfolioSection />
       <Footer />
       <ScrollToTop />
+      {/* <LoadingSpinner /> */}
     </main>
   )
 }
