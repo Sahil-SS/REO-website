@@ -43,7 +43,7 @@ const Navbar = () => {
       }`}
     >
       <motion.div
-        className="max-w-7xl mx-auto flex items-center justify-between px-6 py-0.5 md:py-1"
+        className="max-w-7xl mx-auto flex items-center justify-between px-3 py-0.4 md:py-1"
         animate={{ scale: scrolled ? 1.02 : 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 20 }}
       >
@@ -52,8 +52,8 @@ const Navbar = () => {
           <Image
             src="/images/logo.png"
             alt="REO Developments Logo"
-            width={160} 
-            height={70}
+            width={180} 
+            height={90}
             className="object-contain"
           />
         </Link>
