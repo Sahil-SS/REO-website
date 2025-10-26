@@ -14,13 +14,13 @@ const slides = [
       "REO Developments is dedicated to creating sustainable ecosystems — workspaces that uplift individuals, communities, and the environment.",
   },
   {
-    src: "/images/mumbai.jpg",
+    src: "/images/property2.jpg",
     tagline: "Over 175 Tenants Across Metro Cities.",
     description:
       "Our portfolio proudly hosts multinational and Indian corporations thriving in our premium workspaces.",
   },
   {
-    src: "/images/delhi.jpg",
+    src: "/images/property3.jpg",
     tagline: "Generating Rental Income with Confidence.",
     description:
       "We empower our investors and partners to achieve long-term, sustainable growth through reliable real estate investments.",
@@ -62,19 +62,18 @@ const HeroSection = () => {
       </AnimatePresence>
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 z-10" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/60 z-10" />
 
       {/* Hero Content */}
       <motion.div
         className="relative z-20 px-6 max-w-3xl text-center translate-y-28"
-        // ⬆️ was translate-y-16 before — now lowered ~112px
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         <motion.h1
           key={slides[current].tagline}
-          className="text-4xl md:text-6xl font-bold mb-4 leading-tight"
+          className="text-xl md:text-5xl font-bold mb-4 leading-snug"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -100,10 +99,10 @@ const HeroSection = () => {
           <MotionButton
             whileHover={{
               scale: 1.05,
-              boxShadow: "0 0 20px rgba(122, 28, 28, 0.4)",
+              boxShadow: "0 0 20px rgba(219, 7, 29, 0.4)",
             }}
             whileTap={{ scale: 0.96 }}
-            className="bg-[#7A1C1C] hover:bg-[#611515] text-white px-8 py-3 rounded-xl font-semibold text-lg shadow-md transition-all duration-300"
+            className="bg-[#db071d] hover:bg-[#8b0010] text-white px-8 py-3 rounded-xl font-semibold text-lg shadow-md transition-all duration-300"
           >
             Explore Properties
           </MotionButton>

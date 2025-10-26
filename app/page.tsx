@@ -1,15 +1,15 @@
-import AboutBrief from '@/components/AboutBrief'
+// import AboutBrief from '@/components/AboutBrief'
 import BenefitsSection from '@/components/BenefitsSection'
 import HeroSection from '@/components/HeroSection'
-import KeyHighlights from '@/components/KeyHighlights'
+// import KeyHighlights from '@/components/KeyHighlights'
 import Navbar from '@/components/Navbar'
 import PortfolioSection from '@/components/PortfolioSection'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
 import React from 'react'
-import LoadingSpinner from '@/components/LoadingSpinner'
+// import LoadingSpinner from '@/components/LoadingSpinner'
 import TestimonialsSection from '@/components/TestimonialsSection'
-import Gallery from '@/components/Gallery'
+// import Gallery from '@/components/Gallery'
 import AboutREODevelopments from '@/components/About REO DevelopmentsCard'
 
 const page = () => {
@@ -17,13 +17,13 @@ const page = () => {
     <main>
       <Navbar />
       <HeroSection />
-      <TestimonialsSection />
-      <Gallery />
-      <AboutBrief />
-      <KeyHighlights />
+      {/* <Gallery /> */}
+      {/* <AboutBrief /> */}
+      {/* <KeyHighlights /> */}
       <BenefitsSection />
       <AboutREODevelopments />
       <PortfolioSection />
+      <TestimonialsSection />
       <Footer />
       <ScrollToTop />
       {/* <LoadingSpinner /> */}

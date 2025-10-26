@@ -6,22 +6,22 @@ import { Home, CheckCircle2, HandCoins, TrendingUp } from "lucide-react";
 export default function BenefitsSection() {
   const benefits = [
     {
-      icon: <Home className="w-10 h-10 text-[#7A1C1C]" />,
+      icon: <Home className="w-10 h-10 text-[#db071d]" />,
       title: "Earn from Real Estate Without Ownership",
       desc: "Invest in premium real estate opportunities with ease — no maintenance, no stress, just returns.",
     },
     {
-      icon: <CheckCircle2 className="w-10 h-10 text-[#7A1C1C]" />,
+      icon: <CheckCircle2 className="w-10 h-10 text-[#db071d]" />,
       title: "Effortless Accessibility",
       desc: "Get started instantly with a transparent and intuitive digital platform built for investors.",
     },
     {
-      icon: <HandCoins className="w-10 h-10 text-[#7A1C1C]" />,
+      icon: <HandCoins className="w-10 h-10 text-[#db071d]" />,
       title: "Hassle-Free Management",
       desc: "Enjoy consistent rental income while we handle property operations, tenants, and upkeep.",
     },
     {
-      icon: <TrendingUp className="w-10 h-10 text-[#7A1C1C]" />,
+      icon: <TrendingUp className="w-10 h-10 text-[#db071d]" />,
       title: "Smart, Sustainable Growth",
       desc: "Participate in one of the most stable asset classes — combining growth, safety, and impact.",
     },
@@ -36,7 +36,10 @@ export default function BenefitsSection() {
         transition={{ duration: 0.6 }}
         className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
       >
-        Why Choose <span className="text-[#7A1C1C]">REO Developments</span>
+        Why Choose{" "}
+        <span className="bg-gradient-to-r from-[#db071d] to-[#8b0010] bg-clip-text text-transparent">
+          REO Developments
+        </span>
       </motion.h2>
 
       <motion.p
@@ -56,17 +59,21 @@ export default function BenefitsSection() {
             key={index}
             whileHover={{
               y: -10,
-              boxShadow: "0 12px 30px rgba(122, 28, 28, 0.15)",
+              boxShadow: "0 12px 30px rgba(219, 7, 29, 0.15)",
             }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 hover:border-[#7A1C1C]/30 transition-all duration-300 cursor-pointer"
+            className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 hover:border-[#db071d]/30 transition-all duration-300 cursor-pointer"
           >
             <div className="flex flex-col items-center space-y-5">
-              <div className="p-4 bg-[#7A1C1C]/10 rounded-full">{item.icon}</div>
+              <div className="p-4 bg-[#db071d]/10 rounded-full">
+                {item.icon}
+              </div>
               <h3 className="text-lg font-semibold text-gray-900 tracking-tight">
                 {item.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {item.desc}
+              </p>
             </div>
           </motion.div>
         ))}

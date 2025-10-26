@@ -21,7 +21,7 @@ export default function PortfolioSection() {
       >
         {/* Heading */}
         <motion.h2
-          className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#7A1C1C] to-[#9A3D3D] bg-clip-text text-transparent"
+          className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#db071d] to-[#8b0010] bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -99,8 +99,8 @@ export default function PortfolioSection() {
                 </div>
 
                 {/* Subtle Glow */}
-                <div className="absolute top-4 right-4 w-16 h-16 bg-[#7A1C1C]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-4 left-4 w-12 h-12 bg-[#F5E6E0]/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-4 right-4 w-16 h-16 bg-[#db071d]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-4 left-4 w-12 h-12 bg-[#F5E6E0]/30 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </Link>
             </motion.div>
           ))}
@@ -114,7 +114,7 @@ export default function PortfolioSection() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <motion.button
-            className="bg-[#7A1C1C] text-white px-10 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-2xl hover:bg-[#5A0F0F] transition-all duration-300"
+            className="bg-[#db071d] text-white px-10 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-2xl hover:bg-[#8b0010] transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

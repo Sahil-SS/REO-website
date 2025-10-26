@@ -5,34 +5,28 @@ import Image from "next/image";
 
 const testimonials = [
   {
-    name: "Sarah Simmons",
-    role: "Investor, USA",
+    name: "Sanjay Kumar",
+    role: "Delhi, India",
     image: "/users/user1.jpg",
-    text: "Working with REO Developments was a remarkable experience. Their attention to detail and quality is unmatched — they truly build spaces that inspire growth.",
+    text: "I was definitely hesitant at first, but switching to REO was the best decision I made for my investments. My property returns are consistent and hassle-free. They've saved me so much time and money. I'm completely hooked—REO delivered on its promise to simplify my life!",
   },
   {
-    name: "William Smith",
-    role: "Entrepreneur, UK",
+    name: "L, Vasanthi",
+    role: "",
     image: "/users/user2.jpg",
-    text: "I’m incredibly impressed by their professionalism and the way they deliver sustainable projects with modern design sensibilities.",
+    text: "REO is a trusted brand for rental income! Their excellent service, customer-friendly support, and hassle-free transactions make every property a worthy investment. They handle the entire process smoothly, from registration onwards. Keep up the excellent work!",
   },
   {
-    name: "Aisha Patel",
-    role: "Architect, India",
+    name: "Raj Patel",
+    role: "Mumbai, India",
     image: "/users/user3.jpg",
-    text: "The team’s ability to blend aesthetics with functionality is brilliant. Each project reflects deep thought and care for the environment.",
+    text: "Thanks to REO, my rental property portfolio is thriving! The passive income has exceeded my expectations, and your team made the entire process seamless. Highly recommend for anyone looking to maximize their real estate investments!",
   },
-//   {
-//     name: "Mike Alter",
-//     role: "Business Owner, Dubai",
-//     image: "/users/user4.jpg",
-//     text: "Their developments redefine workspaces — inspiring and practical. It’s a pleasure partnering with such a forward-thinking company.",
-//   },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50 px-6 md:px-12">
+    <section className="py-24 bg-linear-to-b from-white to-gray-50 px-6 md:px-12">
       <div className="max-w-6xl mx-auto text-center mb-12">
         <motion.h2
           className="text-3xl md:text-4xl font-bold text-gray-900 mb-2"
@@ -40,10 +34,10 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          What Our <span className="text-[#7A1C1C]">Clients Say</span>
+          What Our <span className="text-[#db071d]">Clients Say</span>
         </motion.h2>
         <motion.div
-          className="mx-auto w-24 h-1 bg-[#7A1C1C] rounded-full"
+          className="mx-auto w-24 h-1 bg-[#db071d] rounded-full"
           initial={{ width: 0 }}
           whileInView={{ width: 96 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -57,7 +51,7 @@ const Testimonials = () => {
             className="bg-white border border-gray-100 rounded-2xl shadow-sm p-6 flex flex-col items-center text-center hover:shadow-lg transition-all duration-300"
             whileHover={{
               scale: 1.04,
-              boxShadow: "0px 0px 25px rgba(122, 28, 28, 0.3)",
+              boxShadow: "0px 0px 25px rgba(219, 7, 29, 0.3)", 
             }}
           >
             <Image
@@ -65,7 +59,7 @@ const Testimonials = () => {
               alt={t.name}
               width={80}
               height={80}
-              className="rounded-full mb-4 border-4 border-[#7A1C1C]/20 object-cover"
+              className="rounded-full mb-4 border-4 border-[#db071d]/20 object-cover"
             />
             <h3 className="text-lg font-semibold text-gray-900">{t.name}</h3>
             <p className="text-sm text-gray-500 mb-4">{t.role}</p>
