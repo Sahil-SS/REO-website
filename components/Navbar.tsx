@@ -21,9 +21,7 @@ const Navbar = () => {
 
   const scrollToFooter = () => {
     const footer = document.getElementById("contact");
-    if (footer) {
-      footer.scrollIntoView({ behavior: "smooth" });
-    }
+    if (footer) footer.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -32,79 +30,64 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-white shadow-md border-b border-gray-100"
-          : "bg-white/90 backdrop-blur-md"
+        scrolled ? "bg-white shadow-md border-b border-gray-200" : "bg-white/90 backdrop-blur-md"
       }`}
     >
       <motion.div
-        className="max-w-7xl mx-auto flex items-center justify-between px-6 py-1 md:py-2"
+        className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2 md:py-3"
         animate={{ scale: scrolled ? 1.02 : 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 20 }}
       >
-        {/* Left: Logo */}
-        <Link href="/" className="flex items-center space-x-3">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
           <Image
             src="/images/logo.png"
             alt="REO Developments Logo"
-            width={180} // slightly bigger
-            height={80}
+            width={160} // safe fixed size
+            height={60}
             className="object-contain"
           />
         </Link>
 
-        {/* Right: Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8 text-gray-800 font-medium">
-          <Link href="/" className="hover:text-[#1C2B5B] transition-colors duration-300">
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center space-x-8 font-medium text-gray-800">
+          <Link href="/" className="hover:text-[#db071d] transition-colors duration-300">
             Home
           </Link>
-
-          <Link href="/about" className="hover:text-[#1C2B5B] transition-colors duration-300">
+          <Link href="/about" className="hover:text-[#db071d] transition-colors duration-300">
             Who We Are
           </Link>
-
-          <Link href="/coming-soon" className="hover:text-[#1C2B5B] transition-colors duration-300">
+          <Link href="/coming-soon" className="hover:text-[#db071d] transition-colors duration-300">
             Invest
           </Link>
-
-          <Link href="/coming-soon" className="hover:text-[#1C2B5B] transition-colors duration-300">
+          <Link href="/coming-soon" className="hover:text-[#db071d] transition-colors duration-300">
             Projects
           </Link>
-
-          <Link href="/coming-soon" className="hover:text-[#1C2B5B] transition-colors duration-300">
+          <Link href="/coming-soon" className="hover:text-[#db071d] transition-colors duration-300">
             Loan
           </Link>
 
-          {/* Portals Dropdown */}
+          {/* Dropdown */}
           <div
             className="relative group"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <button className="flex items-center gap-1 hover:text-[#1C2B5B] transition-colors duration-300">
+            <button className="flex items-center gap-1 hover:text-[#db071d] transition-colors duration-300">
               Portals <ChevronDown className="w-4 h-4" />
             </button>
             <motion.div
               initial={{ opacity: 0, y: -10 }}
-              animate={{
-                opacity: dropdownOpen ? 1 : 0,
-                y: dropdownOpen ? 0 : -10,
-              }}
+              animate={{ opacity: dropdownOpen ? 1 : 0, y: dropdownOpen ? 0 : -10 }}
               transition={{ duration: 0.25 }}
-              className={`absolute top-8 left-0 bg-white shadow-lg rounded-md border border-gray-100 py-2 w-48 ${
+              className={`absolute top-8 left-0 bg-white shadow-md rounded-md border border-gray-200 py-2 w-48 ${
                 dropdownOpen ? "visible opacity-100" : "invisible opacity-0"
               }`}
             >
-              <Link
-                href="/coming-soon"
-                className="block px-4 py-2 hover:bg-gray-50 hover:text-[#1C2B5B] transition"
-              >
+              <Link href="/coming-soon" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#db071d] transition">
                 Tenant Portal
               </Link>
-              <Link
-                href="/coming-soon"
-                className="block px-4 py-2 hover:bg-gray-50 hover:text-[#1C2B5B] transition"
-              >
+              <Link href="/coming-soon" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#db071d] transition">
                 Owner Portal
               </Link>
             </motion.div>
@@ -112,7 +95,7 @@ const Navbar = () => {
 
           <Button
             onClick={scrollToFooter}
-            className="bg-[#db071d] text-white hover:bg-[#8b0010] rounded-xl px-5 transition"
+            className="bg-[#db071d] text-white hover:bg-[#8b0010] rounded-xl px-5 py-2 transition"
           >
             Contact Us
           </Button>
@@ -132,60 +115,37 @@ const Navbar = () => {
                 </SheetClose>
               </div>
 
-              <div className="flex flex-col space-y-6 mb-8 text-gray-800 font-medium">
-                <SheetClose asChild>
-                  <Link href="/" className="text-lg hover:text-[#1C2B5B] transition">
-                    Home
-                  </Link>
-                </SheetClose>
+              <div className="flex flex-col space-y-6 mb-8 font-medium text-gray-800">
+                {["Home", "Who We Are", "Invest", "Projects", "Loan"].map((link) => (
+                  <SheetClose key={link} asChild>
+                    <Link
+                      href="/coming-soon"
+                      className="text-lg hover:text-[#db071d] transition"
+                    >
+                      {link}
+                    </Link>
+                  </SheetClose>
+                ))}
 
-                <SheetClose asChild>
-                  <Link href="/about" className="text-lg hover:text-[#1C2B5B] transition">
-                    Who We Are
-                  </Link>
-                </SheetClose>
-
-                <SheetClose asChild>
-                  <Link href="/coming-soon" className="text-lg hover:text-[#1C2B5B] transition">
-                    Invest
-                  </Link>
-                </SheetClose>
-
-                <SheetClose asChild>
-                  <Link href="/coming-soon" className="text-lg hover:text-[#1C2B5B] transition">
-                    Projects
-                  </Link>
-                </SheetClose>
-
-                <SheetClose asChild>
-                  <Link href="/coming-soon" className="text-lg hover:text-[#1C2B5B] transition">
-                    Loan
-                  </Link>
-                </SheetClose>
-
-                {/* Mobile Portals */}
+                {/* Mobile Dropdown */}
                 <div className="flex flex-col space-y-2">
                   <span className="text-lg font-semibold text-gray-900">Portals</span>
                   <div className="ml-4 flex flex-col space-y-2 text-gray-700">
-                    <SheetClose asChild>
-                      <Link href="/coming-soon" className="hover:text-[#1C2B5B]">
-                        Tenant Portal
-                      </Link>
-                    </SheetClose>
-                    <SheetClose asChild>
-                      <Link href="/coming-soon" className="hover:text-[#1C2B5B]">
-                        Owner Portal
-                      </Link>
-                    </SheetClose>
+                    {["Tenant Portal", "Owner Portal"].map((portal) => (
+                      <SheetClose key={portal} asChild>
+                        <Link href="/coming-soon" className="hover:text-[#db071d]">
+                          {portal}
+                        </Link>
+                      </SheetClose>
+                    ))}
                   </div>
                 </div>
               </div>
 
-              {/* Mobile Contact Us */}
               <SheetClose asChild>
                 <Button
                   onClick={scrollToFooter}
-                  className="bg-[#db071d] text-white hover:bg-[#8b0010] w-full rounded-xl"
+                  className="bg-[#db071d] text-white hover:bg-[#8b0010] w-full rounded-xl py-2"
                 >
                   Contact Us
                 </Button>
