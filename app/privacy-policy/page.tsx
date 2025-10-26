@@ -138,7 +138,7 @@ const PrivacyPolicy = () => {
               If you have questions about this Privacy Policy or your personal data,
               please contact us at{" "}
               <a href="mailto:support@reodevelopments.com" className="text-[#db071d] underline">
-                support@reodevelopments.com
+                support@reodevelop.com
               </a>
               .
             </p>

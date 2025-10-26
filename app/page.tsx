@@ -11,12 +11,14 @@ import React from 'react'
 import TestimonialsSection from '@/components/TestimonialsSection'
 // import Gallery from '@/components/Gallery'
 import AboutREODevelopments from '@/components/About REO DevelopmentsCard'
+import TradingviewWidget from '@/components/tradingview-widget'
 
 const page = () => {
   return (
     <main>
       <Navbar />
       <HeroSection />
+      <TradingviewWidget />
       {/* <Gallery /> */}
       {/* <AboutBrief /> */}
       {/* <KeyHighlights /> */}

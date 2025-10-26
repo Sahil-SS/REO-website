@@ -69,63 +69,63 @@ const AboutPage = () => {
       </section>
 
       {/* OUR STORY / WHO WE ARE */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="max-w-7xl mx-auto px-6 py-24">
         <motion.div
-          initial={{ x: -50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="space-y-6"
+          className="flex flex-col lg:flex-row bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Who <span className="text-[#db071d]">We Are</span>
-          </h2>
+          {/* Text Section */}
+          <div className="lg:w-1/2 p-8 flex flex-col justify-between">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                Who <span className="text-[#db071d]">We Are</span>
+              </h2>
 
-          <p className="text-gray-700 leading-relaxed text-lg">
-            <span className="font-semibold text-[#db071d]">
-              Real Estate Opportunity
-            </span>{" "}
-            possesses the resources and expertise necessary to assist you in
-            achieving your investment goals. Alongside our work with commercial
-            properties, we have significant experience managing challenging
-            Class B and C low-income properties.
-          </p>
+              <p className="text-gray-700 leading-relaxed text-lg mb-4">
+                <span className="font-semibold text-[#db071d]">
+                  Real Estate Opportunity
+                </span>{" "}
+                possesses the resources and expertise necessary to assist you in
+                achieving your investment goals. Alongside our work with
+                commercial properties, we have significant experience managing
+                challenging Class B and C low-income properties.
+              </p>
 
-          <p className="text-gray-700 leading-relaxed text-lg">
-            Always prioritizing the bottom line, we provide opportunities to
-            explore a diverse range of unique investment options while reducing
-            expenses and enhancing potential returns.
-          </p>
+              <p className="text-gray-700 leading-relaxed text-lg mb-4">
+                Always prioritizing the bottom line, we provide opportunities to
+                explore a diverse range of unique investment options while
+                reducing expenses and enhancing potential returns.
+              </p>
 
-          <p className="text-gray-700 leading-relaxed text-lg">
-            With our extensive experience in the markets we serve, we excel at
-            identifying opportunities and helping our clients capitalize on
-            them. Whether you are a new or seasoned investor, you can rely on us
-            to achieve the results you desire.
-          </p>
+              <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                With our extensive experience in the markets we serve, we excel
+                at identifying opportunities and helping our clients capitalize
+                on them. Whether you are a new or seasoned investor, you can
+                rely on us to achieve the results you desire.
+              </p>
+            </div>
 
-          <div className="p-6 bg-gradient-to-r from-[#FFE5E5] to-[#FFD6D6] border-l-4 border-[#db071d] rounded-xl shadow-lg">
-            <p className="text-[#1C2B5B] font-medium leading-relaxed">
-              “We don’t just build properties — we build ecosystems that sustain
-              businesses and communities for generations.”
-            </p>
+            <div className="p-6 bg-gradient-to-r from-[#FFE5E5] to-[#FFD6D6] border-l-4 border-[#db071d] rounded-xl shadow-lg mt-4">
+              <p className="text-[#1C2B5B] font-medium leading-relaxed">
+                “We don’t just build properties — we build ecosystems that
+                sustain businesses and communities for generations.”
+              </p>
+            </div>
           </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ x: 50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative h-[420px] rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500"
-        >
-          <Image
-            src="/images/mumbai.jpg"
-            alt="REO Office"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+          {/* Image Section */}
+          <div className="lg:w-1/2 relative h-80 lg:h-auto">
+            <Image
+              src="/images/mumbai.jpg"
+              alt="REO Office"
+              fill
+              className="object-cover w-full h-full"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+          </div>
         </motion.div>
       </section>
 
@@ -276,7 +276,7 @@ const AboutPage = () => {
           className="relative w-full h-96 rounded-3xl shadow-2xl overflow-hidden"
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.4747325296416!2d77.6701063!3d12.9978781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11394b02d64d%3A0xcb752ccfe6b518aa!2sTin%20Factory%20(Infront%20of%20Bharath%20Petrol%20Pump)!5e0!3m2!1sen!2sin!4v1708825000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.2277779755247!2d77.66694371526043!3d12.997731690838424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17e23422f449%3A0xf026ddf98b77e824!2sWorkFlo%20by%20OYO%20Ranka%20Junction!5e0!3m2!1sen!2sin!4v1730012345678!5m2!1sen!2sin"
             className="w-full h-full border-0 rounded-3xl"
             allowFullScreen
             loading="lazy"
@@ -305,6 +305,12 @@ const AboutPage = () => {
         </motion.div>
         <div className="absolute top-[-30px] left-[-30px] w-20 h-20 bg-white/10 rounded-full"></div>
         <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-white/10 rounded-full"></div>
+        <a
+          href="/contact-us"
+          className="inline-flex items-center justify-center gap-2 bg-[#db071d] hover:bg-[#8b0010] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl border-2 border-white/20"
+        >
+          Contact Our Team <span className="text-white text-lg">→</span>
+        </a>
       </section>
     </div>
   );

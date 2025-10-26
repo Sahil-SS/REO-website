@@ -38,7 +38,7 @@ export default function BenefitsSection() {
       >
         Why Choose{" "}
         <span className="bg-gradient-to-r from-[#db071d] to-[#8b0010] bg-clip-text text-transparent">
-          REO Developments
+          REO 
         </span>
       </motion.h2>
 
