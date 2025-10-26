@@ -74,7 +74,7 @@ const AboutREODevelopments: React.FC = () => {
                   enterprises.
                 </p>
 
-                <div className="bg-white/10 p-6 rounded-xl border-l-4 border-[#7A1C1C]">
+                <div className="bg-white/10 p-6 rounded-xl border-l-4 border-[#db071d]">
                   <p className="text-gray-100 leading-relaxed text-base">
                     Shareholders can enjoy reliable real estate investments and consistent
                     metropolitan rental income.
@@ -88,26 +88,26 @@ const AboutREODevelopments: React.FC = () => {
                   {
                     icon: "FaEnvelope",
                     name: "Email",
-                    color: "bg-[#7A1C1C]",
-                    link: "mailto:info@reodevelopments.com",
+                    color: "bg-[#db071d]",
+                    link: "mailto:support@reodevelopments.com",
                   },
                   {
                     icon: "FaLinkedin",
                     name: "LinkedIn",
-                    color: "bg-[#5A0F0F]",
+                    color: "bg-[#8b0010]",
                     link: "https://linkedin.com/company/reo-developments",
                   },
                   {
                     icon: "FaWhatsapp",
                     name: "WhatsApp",
                     color: "bg-green-600",
-                    link: "https://wa.me/919876543210",
+                    link: "https://wa.me/+918436969369",
                   },
                   {
                     icon: "FaPhone",
                     name: "Phone",
                     color: "bg-gray-800",
-                    link: "tel:+919876543210",
+                    link: "tel:+918436969369",
                   },
                 ].map((contact) => (
                   <a

@@ -22,19 +22,21 @@ const Footer = () => {
     "Contact",
   ];
 
-  const socialLinks = [
-    { icon: FaFacebook, label: "Facebook", color: "hover:text-blue-500" },
-    { icon: FaTwitter, label: "Twitter", color: "hover:text-blue-400" },
-    { icon: FaLinkedin, label: "LinkedIn", color: "hover:text-blue-600" },
-    { icon: FaInstagram, label: "Instagram", color: "hover:text-pink-500" },
-  ];
-
   return (
-    <footer
-      id="contact"
-      className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
-    >
-      <div className="max-w-7xl mx-auto px-6 py-12 md:py-14">
+    <footer id="contact" className="relative text-white overflow-hidden">
+      {/* Background Image with Subtle Blur & Overlay */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/footer-image.jpg"
+          alt="Footer background"
+          className="w-full h-full object-cover blur-[2px] brightness-90 scale-105"
+        />
+        {/* Slightly lighter overlay so image is softly visible */}
+        <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/60 to-black/80"></div>
+      </div>
+
+      {/* Content Layer */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {/* Company Info */}
           <motion.div
@@ -45,16 +47,16 @@ const Footer = () => {
             className="lg:col-span-2"
           >
             <motion.h3
-              className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#7A1C1C] to-[#A83232] bg-clip-text text-transparent"
+              className="text-2xl font-bold mb-4 bg-linear-to-r from-[#db071d] to-[#A83232] bg-clip-text text-transparent"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               REO Developments
             </motion.h3>
             <p className="text-gray-300 mb-4 leading-relaxed text-sm">
-              Creating sustainable workspaces that positively impact individuals,
-              communities, and the environment. Where{" "}
-              <span className="text-[#7A1C1C] font-semibold">
+              Creating sustainable workspaces that positively impact
+              individuals, communities, and the environment. Where{" "}
+              <span className="text-[#db071d] font-semibold">
                 Quality Meets Opportunity
               </span>
               .
@@ -67,24 +69,34 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <FaMapMarkerAlt className="text-[#7A1C1C]" />
-                <span className="text-gray-300">Metro Cities, India</span>
+                <FaMapMarkerAlt className="text-[#db071d]" />
+                <a
+                  href="https://maps.app.goo.gl/Xp7Msc24ifQBL54eA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-[#db071d] transition-colors duration-300"
+                >
+                  Tin Factory (In front of Bharath Petrol Pump), Bangalore
+                </a>
               </motion.div>
+
               <motion.div
-                className="flex items-center space-x-3"
+                className="flex items-center space-x-3 hover:text-[#db071d] transition-colors duration-300 cursor-pointer"
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <FaPhone className="text-[#7A1C1C]" />
-                <span className="text-gray-300">+91 9876543210</span>
+                <FaPhone className="text-[#db071d]" />
+                <span className="text-gray-300">+91 8436969369</span>
               </motion.div>
               <motion.div
-                className="flex items-center space-x-3"
+                className="flex items-center space-x-3 cursor-pointer hover:text-[#db071d] transition-colors duration-300"
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <FaEnvelope className="text-[#7A1C1C]" />
-                <span className="text-gray-300">info@reodevelopments.com</span>
+                <FaEnvelope className="text-[#db071d]" />
+                <span className="text-gray-300">
+                  support@reodevelopments.com
+                </span>
               </motion.div>
             </div>
           </motion.div>
@@ -107,8 +119,8 @@ const Footer = () => {
                   viewport={{ once: true }}
                 >
                   <Link
-                    href={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="text-gray-300 hover:text-[#7A1C1C] transition-colors duration-300"
+                    href="#"
+                    className="text-gray-300 hover:text-[#db071d] transition-colors duration-300"
                   >
                     {link}
                   </Link>
@@ -117,7 +129,7 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Contact Form (via Web3Forms) */}
+          {/* Contact Form (Web3Forms) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -140,25 +152,25 @@ const Footer = () => {
                 name="name"
                 placeholder="Your Name"
                 required
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-sm focus:outline-none focus:border-[#7A1C1C]"
+                className="w-full px-3 py-2 bg-gray-800/80 border border-gray-700 rounded-md text-sm focus:outline-none focus:border-[#db071d]"
               />
               <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
                 required
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-sm focus:outline-none focus:border-[#7A1C1C]"
+                className="w-full px-3 py-2 bg-gray-800/80 border border-gray-700 rounded-md text-sm focus:outline-none focus:border-[#db071d]"
               />
               <textarea
                 name="message"
                 placeholder="Your Message"
                 rows={3}
                 required
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md text-sm focus:outline-none focus:border-[#7A1C1C]"
+                className="w-full px-3 py-2 bg-gray-800/80 border border-gray-700 rounded-md text-sm focus:outline-none focus:border-[#db071d]"
               ></textarea>
               <motion.button
                 type="submit"
-                className="w-full py-2 bg-linear-to-r from-[#7A1C1C] to-[#A83232] text-white rounded-md font-medium text-sm"
+                className="w-full py-2 bg-linear-to-r from-[#db071d] to-[#A83232] text-white rounded-md font-medium text-sm"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -181,14 +193,14 @@ const Footer = () => {
           </p>
           <div className="flex space-x-6 mt-3 md:mt-0 text-xs md:text-sm">
             <Link
-              href="/privacy"
-              className="text-gray-400 hover:text-[#7A1C1C] transition-colors"
+              href="/privacy-policy"
+              className="text-gray-400 hover:text-[#db071d] transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-gray-400 hover:text-[#7A1C1C] transition-colors"
+              className="text-gray-400 hover:text-[#db071d] transition-colors"
             >
               Terms of Service
             </Link>

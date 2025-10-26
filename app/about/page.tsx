@@ -21,17 +21,17 @@ const AboutPage = () => {
 
   const icons = [
     {
-      icon: <Building2 className="w-10 h-10 text-[#7A1C1C]" />,
+      icon: <Building2 className="w-10 h-10 text-[#db071d]" />,
       title: "Premium Infrastructure",
       desc: "Architecturally inspiring, energy-efficient spaces built to global standards.",
     },
     {
-      icon: <Users className="w-10 h-10 text-[#7A1C1C]" />,
+      icon: <Users className="w-10 h-10 text-[#db071d]" />,
       title: "Trusted Partnerships",
       desc: "We collaborate with top multinational and Indian corporations for long-term growth.",
     },
     {
-      icon: <Handshake className="w-10 h-10 text-[#7A1C1C]" />,
+      icon: <Handshake className="w-10 h-10 text-[#db071d]" />,
       title: "Guaranteed Returns",
       desc: "Assured rental income through well-managed and transparent investment models.",
     },
@@ -68,61 +68,69 @@ const AboutPage = () => {
         </motion.div>
       </section>
 
-{/* OUR STORY / WHO WE ARE */}
-<section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-  {/* Text Content */}
-  <motion.div
-    initial={{ x: -50, opacity: 0 }}
-    whileInView={{ x: 0, opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8 }}
-    className="space-y-6"
-  >
-    <h2 className="text-4xl md:text-5xl font-bold mb-4">
-      Who <span className="text-[#7A1C1C]">We Are</span>
-    </h2>
+      {/* OUR STORY / WHO WE ARE */}
+      <section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Who <span className="text-[#db071d]">We Are</span>
+          </h2>
 
-    <p className="text-gray-700 leading-relaxed text-lg">
-      <span className="font-semibold text-[#7A1C1C]">Real Estate Opportunity</span> possesses the resources and expertise necessary to assist you in achieving your investment goals. Alongside our work with commercial properties, we have significant experience managing challenging Class B and C low-income properties.
-    </p>
+          <p className="text-gray-700 leading-relaxed text-lg">
+            <span className="font-semibold text-[#db071d]">
+              Real Estate Opportunity
+            </span>{" "}
+            possesses the resources and expertise necessary to assist you in
+            achieving your investment goals. Alongside our work with commercial
+            properties, we have significant experience managing challenging
+            Class B and C low-income properties.
+          </p>
 
-    <p className="text-gray-700 leading-relaxed text-lg">
-      Always prioritizing the bottom line, we provide opportunities to explore a diverse range of unique investment options while reducing expenses and enhancing potential returns.
-    </p>
+          <p className="text-gray-700 leading-relaxed text-lg">
+            Always prioritizing the bottom line, we provide opportunities to
+            explore a diverse range of unique investment options while reducing
+            expenses and enhancing potential returns.
+          </p>
 
-    <p className="text-gray-700 leading-relaxed text-lg">
-      With our extensive experience in the markets we serve, we excel at identifying opportunities and helping our clients capitalize on them. Whether you are a new or seasoned investor, you can rely on us to achieve the results you desire.
-    </p>
+          <p className="text-gray-700 leading-relaxed text-lg">
+            With our extensive experience in the markets we serve, we excel at
+            identifying opportunities and helping our clients capitalize on
+            them. Whether you are a new or seasoned investor, you can rely on us
+            to achieve the results you desire.
+          </p>
 
-    <div className="p-6 bg-gradient-to-r from-[#FFE5E5] to-[#FFD6D6] border-l-4 border-[#7A1C1C] rounded-xl shadow-lg">
-      <p className="text-[#1C2B5B] font-medium leading-relaxed">
-        “We don’t just build properties — we build ecosystems that sustain businesses and communities for generations.”
-      </p>
-    </div>
-  </motion.div>
+          <div className="p-6 bg-gradient-to-r from-[#FFE5E5] to-[#FFD6D6] border-l-4 border-[#db071d] rounded-xl shadow-lg">
+            <p className="text-[#1C2B5B] font-medium leading-relaxed">
+              “We don’t just build properties — we build ecosystems that sustain
+              businesses and communities for generations.”
+            </p>
+          </div>
+        </motion.div>
 
-  {/* Image Content */}
-  <motion.div
-    initial={{ x: 50, opacity: 0 }}
-    whileInView={{ x: 0, opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.8 }}
-    className="relative h-[420px] rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500"
-  >
-    <Image
-      src="/images/bangalore.jpg"
-      alt="REO Office"
-      fill
-      className="object-cover"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-  </motion.div>
-</section>
-
+        <motion.div
+          initial={{ x: 50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative h-[420px] rounded-2xl overflow-hidden shadow-2xl hover:scale-105 transition-transform duration-500"
+        >
+          <Image
+            src="/images/mumbai.jpg"
+            alt="REO Office"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+        </motion.div>
+      </section>
 
       {/* STATS SECTION */}
-      <section className="relative py-16 bg-gradient-to-r from-[#7A1C1C] to-[#B31E1E] text-white overflow-hidden">
-        {/* Decorative gradient circles */}
+      <section className="relative py-16 bg-gradient-to-r from-[#db071d] to-[#B31E1E] text-white overflow-hidden">
         <div className="absolute top-[-30px] left-[-30px] w-24 h-24 bg-white/10 rounded-full animate-pulse-slow"></div>
         <div className="absolute bottom-[-40px] right-[-40px] w-32 h-32 bg-white/10 rounded-full animate-pulse-slow"></div>
 
@@ -154,7 +162,7 @@ const AboutPage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Our <span className="text-[#7A1C1C]">Core Values</span>
+          Our <span className="text-[#db071d]">Core Values</span>
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {icons.map((item, idx) => (
@@ -184,7 +192,7 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Our <span className="text-[#7A1C1C]">Presence</span> Across India
+            Our <span className="text-[#db071d]">Presence</span> Across India
           </motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {locations.map((loc, i) => (
@@ -211,11 +219,77 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="py-12 bg-linear-to-r from-[#7A1C1C] to-[#B31E1E] text-white text-center relative overflow-hidden">
-        {/* Decorative accent line */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-white rounded-full mt-4 opacity-50"></div>
+      {/* OUR PROJECTS SECTION
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Our <span className="text-[#db071d]">Projects</span>
+        </motion.h2>
 
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <motion.div
+            className="relative overflow-hidden rounded-2xl shadow-lg cursor-pointer group"
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <img
+              src="/images/innov8-bangalore.jpg" // replace with your project image
+              alt="Innov8 Ranka Junction, Bangalore"
+              className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-all duration-300 flex flex-col justify-end p-6">
+              <h3 className="text-white text-xl font-semibold">
+                Innov8 Ranka Junction, Bangalore
+              </h3>
+              <a
+                href="https://www.innov8.work/coworking-space/bangalore/ranka-junction-kr-puram-orr-5dce31138bca0c04028a9460/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-[#db071d] mt-2 hover:underline"
+              >
+                View Project
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section> */}
+
+      {/* GOOGLE MAP SECTION */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Visit Our <span className="text-[#db071d]">Office</span>
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative w-full h-96 rounded-3xl shadow-2xl overflow-hidden"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.4747325296416!2d77.6701063!3d12.9978781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11394b02d64d%3A0xcb752ccfe6b518aa!2sTin%20Factory%20(Infront%20of%20Bharath%20Petrol%20Pump)!5e0!3m2!1sen!2sin!4v1708825000000!5m2!1sen!2sin"
+            className="w-full h-full border-0 rounded-3xl"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="REO Developments Location"
+          ></iframe>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl pointer-events-none"></div>
+        </motion.div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="py-12 bg-linear-to-r from-[#db071d] to-[#B31E1E] text-white text-center relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-white rounded-full mt-4 opacity-50"></div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -228,10 +302,7 @@ const AboutPage = () => {
           <p className="text-white/90 mb-6 text-base md:text-lg drop-shadow-sm">
             Let’s create sustainable, smart, and future-ready spaces together.
           </p>
-          <a href="#footer"></a>
         </motion.div>
-
-        {/* Decorative gradient circles for subtle flair */}
         <div className="absolute top-[-30px] left-[-30px] w-20 h-20 bg-white/10 rounded-full"></div>
         <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-white/10 rounded-full"></div>
       </section>
