@@ -56,7 +56,7 @@ const WhoWeArePage = () => {
           {/* Image Section */}
           <div className="lg:w-1/2 relative h-80 lg:h-auto">
             <Image
-              src="/images/card.png"
+              src="/images/card.jpg"
               alt="REO Office"
               fill
               className="object-cover w-full h-full"
