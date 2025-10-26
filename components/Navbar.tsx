@@ -11,18 +11,13 @@ import { ChevronDown } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const scrollToFooter = () => {
-    const footer = document.getElementById("contact");
-    if (footer) footer.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <motion.nav
@@ -34,7 +29,7 @@ const Navbar = () => {
       }`}
     >
       <motion.div
-        className="max-w-7xl mx-auto flex items-center justify-between px-6 h-20 md:h-24"
+        className="max-w-7xl mx-auto flex items-center justify-between px-6 h-20 md:h-20"
         animate={{ scale: scrolled ? 1.01 : 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 20 }}
       >
@@ -43,59 +38,74 @@ const Navbar = () => {
           <Image
             src="/images/logo.png"
             alt="REO Developments Logo"
-            width={200} // slightly larger
-            height={80} // fixed height
+            width={240}
+            height={170}
             className="object-contain"
           />
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8 font-medium text-gray-800 h-full">
-          {["Home", "Who We Are", "Invest", "Projects", "Loan"].map((link) => (
-            <Link
-              key={link}
-              href="/coming-soon"
-              className="flex items-center h-full hover:text-[#db071d] transition-colors duration-300"
-            >
-              {link}
-            </Link>
-          ))}
+          <Link href="/" className="flex items-center h-full hover:text-[#db071d] transition-colors duration-300">
+            Home
+          </Link>
 
-          {/* Dropdown */}
+          <Link href="/about" className="flex items-center h-full hover:text-[#db071d] transition-colors duration-300">
+            Who We Are
+          </Link>
+
+          <Link href="/coming-soon" className="flex items-center h-full hover:text-[#db071d] transition-colors duration-300">
+            Invest
+          </Link>
+
+          <Link href="/coming-soon" className="flex items-center h-full hover:text-[#db071d] transition-colors duration-300">
+            Projects
+          </Link>
+
+          <Link href="/coming-soon" className="flex items-center h-full hover:text-[#db071d] transition-colors duration-300">
+            Loan
+          </Link>
+
+          {/* Contact Us */}
+          <Link href="/contact-us" className="flex items-center h-full hover:text-[#db071d] transition-colors duration-300">
+            Contact Us
+          </Link>
+
+          {/* Log In Dropdown */}
           <div
-            className="relative group h-full flex items-center"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
+            className="relative"
+            onMouseEnter={() => setLoginOpen(true)}
+            onMouseLeave={() => setLoginOpen(false)}
           >
-            <button className="flex items-center gap-1 hover:text-[#db071d] transition-colors duration-300">
-              Portals <ChevronDown className="w-4 h-4" />
-            </button>
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: dropdownOpen ? 1 : 0, y: dropdownOpen ? 0 : -10 }}
-              transition={{ duration: 0.25 }}
-              className={`absolute top-8 left-0 bg-white shadow-md rounded-md border border-gray-200 py-2 w-48 ${
-                dropdownOpen ? "visible opacity-100" : "invisible opacity-0"
-              }`}
+            <Button
+              className="bg-[#db071d] text-white hover:bg-[#8b0010] rounded-xl px-6 py-2 transition text-sm md:text-base flex items-center gap-1"
             >
-              {["Tenant Portal", "Owner Portal"].map((portal) => (
+              Log In <ChevronDown className="w-4 h-4" />
+            </Button>
+
+            {loginOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.25 }}
+                className="absolute top-12 right-0 bg-white border border-gray-200 shadow-md rounded-md w-48 py-2 z-50"
+              >
                 <Link
-                  key={portal}
-                  href="/coming-soon"
+                  href="/tenant-portal"
                   className="block px-4 py-2 hover:bg-gray-50 hover:text-[#db071d] transition"
                 >
-                  {portal}
+                  Tenant Portal
                 </Link>
-              ))}
-            </motion.div>
+                <Link
+                  href="/owner-portal"
+                  className="block px-4 py-2 hover:bg-gray-50 hover:text-[#db071d] transition"
+                >
+                  Owner Portal
+                </Link>
+              </motion.div>
+            )}
           </div>
-
-          <Button
-            onClick={scrollToFooter}
-            className="bg-[#db071d] text-white hover:bg-[#8b0010] rounded-xl px-6 py-2 transition text-sm md:text-base"
-          >
-            Contact Us
-          </Button>
         </div>
 
         {/* Mobile Menu */}
@@ -113,37 +123,30 @@ const Navbar = () => {
               </div>
 
               <div className="flex flex-col space-y-6 mb-8 font-medium text-gray-800">
-                {["Home", "Who We Are", "Invest", "Projects", "Loan"].map((link) => (
-                  <SheetClose key={link} asChild>
-                    <Link href="/coming-soon" className="text-lg hover:text-[#db071d] transition">
-                      {link}
-                    </Link>
-                  </SheetClose>
-                ))}
-
-                {/* Mobile Dropdown */}
-                <div className="flex flex-col space-y-2">
-                  <span className="text-lg font-semibold text-gray-900">Portals</span>
-                  <div className="ml-4 flex flex-col space-y-2 text-gray-700">
-                    {["Tenant Portal", "Owner Portal"].map((portal) => (
-                      <SheetClose key={portal} asChild>
-                        <Link href="/coming-soon" className="hover:text-[#db071d]">
-                          {portal}
-                        </Link>
-                      </SheetClose>
-                    ))}
-                  </div>
-                </div>
+                <SheetClose asChild><Link href="/">Home</Link></SheetClose>
+                <SheetClose asChild><Link href="/about">Who We Are</Link></SheetClose>
+                <SheetClose asChild><Link href="/coming-soon">Invest</Link></SheetClose>
+                <SheetClose asChild><Link href="/coming-soon">Projects</Link></SheetClose>
+                <SheetClose asChild><Link href="/coming-soon">Loan</Link></SheetClose>
+                <SheetClose asChild><Link href="#contact">Contact Us</Link></SheetClose>
               </div>
 
-              <SheetClose asChild>
-                <Button
-                  onClick={scrollToFooter}
-                  className="bg-[#db071d] text-white hover:bg-[#8b0010] w-full rounded-xl py-2"
-                >
-                  Contact Us
-                </Button>
-              </SheetClose>
+              {/* Log In dropdown in mobile */}
+              <div className="mt-4">
+                <span className="block text-gray-900 font-semibold mb-2">Log In</span>
+                <div className="ml-2 flex flex-col space-y-2 text-gray-700">
+                  <SheetClose asChild>
+                    <Link href="/tenant-portal" className="hover:text-[#db071d]">
+                      Tenant Portal
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link href="/owner-portal" className="hover:text-[#db071d]">
+                      Owner Portal
+                    </Link>
+                  </SheetClose>
+                </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

@@ -133,7 +133,7 @@ const TermsOfService = () => {
             <p className="text-gray-700 leading-relaxed">
               If you have questions about these Terms of Service, please contact us at{" "}
               <a href="mailto:support@reodevelopments.com" className="text-[#db071d] underline">
-                support@reodevelopments.com
+                support@reodevelop.com
               </a>.
             </p>
           </motion.div>

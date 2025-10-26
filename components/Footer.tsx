@@ -47,12 +47,13 @@ const Footer = () => {
             className="lg:col-span-2"
           >
             <motion.h3
-              className="text-2xl font-bold mb-4 bg-linear-to-r from-[#db071d] to-[#A83232] bg-clip-text text-transparent"
+              className="text-2xl font-bold mb-4 text-white"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               REO Developments
             </motion.h3>
+
             <p className="text-gray-300 mb-4 leading-relaxed text-sm">
               Creating sustainable workspaces that positively impact
               individuals, communities, and the environment. Where{" "}
@@ -71,12 +72,12 @@ const Footer = () => {
               >
                 <FaMapMarkerAlt className="text-[#db071d]" />
                 <a
-                  href="https://maps.app.goo.gl/Xp7Msc24ifQBL54eA"
+                  href="https://www.google.com/maps/place/WorkFlo+in+Ranka+Junction,+KR+Puram,+Orr/@12.9977088,77.6671201,17z/data=!4m10!1m2!2m1!1s1st+floor,+AH45,+Krishna+Reddy+Industrial+Estate,+Dooravani+Nagar,+Bengaluru,+Karnataka+560016!3m6!1s0x3bae17e23422f449:0xf026ddf98b77e824!8m2!3d12.9977317!4d77.6695186!15sCl4xc3QgZmxvb3IsIEFINDUsIEtyaXNobmEgUmVkZHkgSW5kdXN0cmlhbCBFc3RhdGUsIERvb3JhdmFuaSBOYWdhciwgQmVuZ2FsdXJ1LCBLYXJuYXRha2EgNTYwMDE2WlsiWTFzdCBmbG9vciBhaDQ1IGtyaXNobmEgcmVkZHkgaW5kdXN0cmlhbCBlc3RhdGUgZG9vcmF2YW5pIG5hZ2FyIGJlbmdhbHVydSBrYXJuYXRha2EgNTYwMDE2kgEPY293b3JraW5nX3NwYWNl4AEA!16s%2Fg%2F11xd0kbny0?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-[#db071d] transition-colors duration-300"
                 >
-                  Tin Factory (In front of Bharath Petrol Pump), Bangalore
+                  1st floor, AH45, Krishna Reddy Industrial Estate, Dooravani Nagar, Bengaluru, Karnataka 560016
                 </a>
               </motion.div>
 
@@ -85,8 +86,8 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <FaPhone className="text-[#db071d]" />
-                <span className="text-gray-300">+91 8436969369</span>
+                {/* <FaPhone className="text-[#db071d]" />
+                <span className="text-gray-300">+91 8436969369</span> */}
               </motion.div>
               <motion.div
                 className="flex items-center space-x-3 cursor-pointer hover:text-[#db071d] transition-colors duration-300"
@@ -95,7 +96,7 @@ const Footer = () => {
               >
                 <FaEnvelope className="text-[#db071d]" />
                 <span className="text-gray-300">
-                  support@reodevelopments.com
+                  support@reodevelop.com
                 </span>
               </motion.div>
             </div>
@@ -145,12 +146,19 @@ const Footer = () => {
               <input
                 type="hidden"
                 name="access_key"
-                value="335dfb36-4a68-4db8-b011-61a5058477a3"
+                value="2756ba83-599a-443a-b5a1-1871d615f0db"
               />
               <input
                 type="text"
                 name="name"
                 placeholder="Your Name"
+                required
+                className="w-full px-3 py-2 bg-gray-800/80 border border-gray-700 rounded-md text-sm focus:outline-none focus:border-[#db071d]"
+              />
+                            <input
+                type="Contact Number"
+                name="Contact number"
+                placeholder="Your Contact Number"
                 required
                 className="w-full px-3 py-2 bg-gray-800/80 border border-gray-700 rounded-md text-sm focus:outline-none focus:border-[#db071d]"
               />

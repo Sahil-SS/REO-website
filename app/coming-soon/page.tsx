@@ -9,7 +9,7 @@ const ComingSoonPage = () => {
   const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
 
   useEffect(() => {
-    const launchDate = new Date("2025-12-31T00:00:00").getTime();
+    const launchDate = new Date("2026-01-15T10:00:00").getTime(); // Updated launch date
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -39,7 +39,7 @@ const ComingSoonPage = () => {
     try {
       const formData = new FormData();
       formData.append("email", email);
-      formData.append("access_key", "335dfb36-4a68-4db8-b011-61a5058477a3");
+      formData.append("access_key", "2756ba83-599a-443a-b5a1-1871d615f0db");
       formData.append("subject", "New Subscriber - REO Developments");
       formData.append("from_name", "REO Developments");
 
@@ -86,7 +86,7 @@ const ComingSoonPage = () => {
         transition={{ duration: 0.8 }}
         className="text-4xl md:text-5xl font-normal text-white text-center mb-4 leading-snug z-10"
       >
-        REO Developments is <br /> Launching Soon
+        Our Backend Team is Working on Something Exciting
       </motion.h1>
 
       {/* Subheading */}
@@ -96,7 +96,7 @@ const ComingSoonPage = () => {
         transition={{ delay: 0.2, duration: 0.8 }}
         className="text-white/80 text-base md:text-lg text-center mb-12 max-w-2xl mx-auto font-light leading-relaxed z-10"
       >
-        Experience the future of real estate investments. Stay ahead and get notified for our prelaunch.
+        We are building something amazing for you. Stay ahead and get notified when we launch on <span className="font-semibold text-white">15th Jan 2026, 10:00 AM</span>.
       </motion.h2>
 
       {/* Countdown */}
@@ -131,13 +131,13 @@ const ComingSoonPage = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
-          className="w-full px-4 py-4 rounded-xl bg-white/10 backdrop-blur-sm text-white placeholder-white/60 border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#7A1C1C] transition font-light"
+          className="w-full px-4 py-4 rounded-xl bg-white/10 backdrop-blur-sm text-white placeholder-white/60 border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#db071d] transition font-light"
         />
         <motion.button
           type="submit"
-          whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,28,28,0.7)" }}
-          whileTap={{ scale: 0.97, boxShadow: "0 0 40px rgba(255,28,28,0.9)" }}
-          className="bg-[#7A1C1C] text-white px-6 py-4 rounded-xl font-medium w-full md:min-w-[220px] text-center whitespace-normal transition shadow-lg"
+          whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(219,7,29,0.7)" }}
+          whileTap={{ scale: 0.97, boxShadow: "0 0 40px rgba(219,7,29,0.9)" }}
+          className="bg-[#db071d] text-white px-6 py-4 rounded-xl font-medium w-full md:min-w-[220px] text-center whitespace-normal transition shadow-lg"
         >
           {status === "loading" ? "Sending..." : "Notify Me"}
         </motion.button>
@@ -161,7 +161,7 @@ const ComingSoonPage = () => {
         transition={{ delay: 0.8, duration: 0.8 }}
         className="text-white/50 text-sm mt-8 max-w-xs mx-auto text-center font-light z-10"
       >
-        © 2025 REO Developments. All rights reserved.
+        © 2026 REO Developments. All rights reserved.
       </motion.p>
     </div>
   );
