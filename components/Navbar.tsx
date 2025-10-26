@@ -34,8 +34,8 @@ const Navbar = () => {
       }`}
     >
       <motion.div
-        className="max-w-7xl mx-auto flex items-center justify-between px-6 py-2 md:py-3"
-        animate={{ scale: scrolled ? 1.02 : 1 }}
+        className="max-w-7xl mx-auto flex items-center justify-between px-6 h-20 md:h-24"
+        animate={{ scale: scrolled ? 1.01 : 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 20 }}
       >
         {/* Logo */}
@@ -43,33 +43,27 @@ const Navbar = () => {
           <Image
             src="/images/logo.png"
             alt="REO Developments Logo"
-            width={160} // safe fixed size
-            height={60}
+            width={200} // slightly larger
+            height={80} // fixed height
             className="object-contain"
           />
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8 font-medium text-gray-800">
-          <Link href="/" className="hover:text-[#db071d] transition-colors duration-300">
-            Home
-          </Link>
-          <Link href="/about" className="hover:text-[#db071d] transition-colors duration-300">
-            Who We Are
-          </Link>
-          <Link href="/coming-soon" className="hover:text-[#db071d] transition-colors duration-300">
-            Invest
-          </Link>
-          <Link href="/coming-soon" className="hover:text-[#db071d] transition-colors duration-300">
-            Projects
-          </Link>
-          <Link href="/coming-soon" className="hover:text-[#db071d] transition-colors duration-300">
-            Loan
-          </Link>
+        <div className="hidden md:flex items-center space-x-8 font-medium text-gray-800 h-full">
+          {["Home", "Who We Are", "Invest", "Projects", "Loan"].map((link) => (
+            <Link
+              key={link}
+              href="/coming-soon"
+              className="flex items-center h-full hover:text-[#db071d] transition-colors duration-300"
+            >
+              {link}
+            </Link>
+          ))}
 
           {/* Dropdown */}
           <div
-            className="relative group"
+            className="relative group h-full flex items-center"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
@@ -84,18 +78,21 @@ const Navbar = () => {
                 dropdownOpen ? "visible opacity-100" : "invisible opacity-0"
               }`}
             >
-              <Link href="/coming-soon" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#db071d] transition">
-                Tenant Portal
-              </Link>
-              <Link href="/coming-soon" className="block px-4 py-2 hover:bg-gray-50 hover:text-[#db071d] transition">
-                Owner Portal
-              </Link>
+              {["Tenant Portal", "Owner Portal"].map((portal) => (
+                <Link
+                  key={portal}
+                  href="/coming-soon"
+                  className="block px-4 py-2 hover:bg-gray-50 hover:text-[#db071d] transition"
+                >
+                  {portal}
+                </Link>
+              ))}
             </motion.div>
           </div>
 
           <Button
             onClick={scrollToFooter}
-            className="bg-[#db071d] text-white hover:bg-[#8b0010] rounded-xl px-5 py-2 transition"
+            className="bg-[#db071d] text-white hover:bg-[#8b0010] rounded-xl px-6 py-2 transition text-sm md:text-base"
           >
             Contact Us
           </Button>
@@ -118,10 +115,7 @@ const Navbar = () => {
               <div className="flex flex-col space-y-6 mb-8 font-medium text-gray-800">
                 {["Home", "Who We Are", "Invest", "Projects", "Loan"].map((link) => (
                   <SheetClose key={link} asChild>
-                    <Link
-                      href="/coming-soon"
-                      className="text-lg hover:text-[#db071d] transition"
-                    >
+                    <Link href="/coming-soon" className="text-lg hover:text-[#db071d] transition">
                       {link}
                     </Link>
                   </SheetClose>
