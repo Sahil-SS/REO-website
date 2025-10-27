@@ -9,7 +9,7 @@ const ComingSoonPage = () => {
   const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
 
   useEffect(() => {
-    const launchDate = new Date("2026-01-15T10:00:00").getTime(); // Updated launch date
+    const launchDate = new Date("2026-01-15T10:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();

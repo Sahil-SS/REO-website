@@ -57,9 +57,9 @@ const Footer = () => {
             <p className="text-gray-300 mb-4 leading-relaxed text-sm">
               Creating sustainable workspaces that positively impact
               individuals, communities, and the environment. Where{" "}
-              <span className="text-[#db071d] font-semibold">
+              {/* <span className="text-[#db071d] font-semibold">
                 Quality Meets Opportunity
-              </span>
+              </span> */}
               .
             </p>
 

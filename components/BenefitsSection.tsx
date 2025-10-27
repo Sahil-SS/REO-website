@@ -28,17 +28,17 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-24 px-6 text-center">
+    <section className="bg-gradient-to-b from-white to-gray-50 py-16 px-6 text-center">
       {/* Section Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+        className="text-4xl md:text-5xl font-bold text-gray-900 mb-5"
       >
         Why Choose{" "}
         <span className="bg-gradient-to-r from-[#db071d] to-[#8b0010] bg-clip-text text-transparent">
-          REO 
+          REO
         </span>
       </motion.h2>
 
@@ -46,7 +46,7 @@ export default function BenefitsSection() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2 }}
-        className="text-gray-700 max-w-2xl mx-auto mb-16 text-lg leading-relaxed"
+        className="text-gray-700 max-w-2xl mx-auto mb-10 text-lg leading-relaxed"
       >
         Empowering investors through reliability, transparency, and innovation —
         redefining real estate ownership for the modern era.
