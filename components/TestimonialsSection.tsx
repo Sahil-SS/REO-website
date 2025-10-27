@@ -26,7 +26,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="relative py-24 bg-gradient-to-b from-white to-gray-50 px-6 md:px-12">
+    <section className="relative pt-12 pb-24 bg-gradient-to-b from-white to-gray-50 px-6 md:px-12">
       {/* Title */}
       <div className="max-w-6xl mx-auto text-center mb-12">
         <motion.h2

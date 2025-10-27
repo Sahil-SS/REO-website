@@ -12,7 +12,8 @@ const cities = [
 
 export default function PortfolioSection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-white via-[#fdf5f3] to-[#f8f6f5]">
+    // 🔹 Removed the reddish hue and extra spacing below
+    <section className="pt-20 pb-16 bg-white">
       <motion.div
         className="max-w-7xl mx-auto px-6 text-center"
         initial="hidden"
@@ -31,12 +32,12 @@ export default function PortfolioSection() {
 
         {/* Description */}
         <motion.p
-          className="text-xl text-gray-700 mb-16 max-w-3xl mx-auto"
+          className="text-xl text-gray-700 mb-14 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Discover premium real estate developments across India top cities.
+          Discover premium real estate developments across India’s top cities.
           Each project embodies our signature blend of elegance, sustainability, and innovation.
         </motion.p>
 
@@ -60,7 +61,7 @@ export default function PortfolioSection() {
               className="relative w-full h-80 overflow-hidden rounded-3xl cursor-pointer group shadow-md hover:shadow-xl transition-all duration-400"
               viewport={{ once: true, margin: "-50px" }}
             >
-              <Link href='/coming-soon'>
+              <Link href="/coming-soon">
                 <img
                   src={city.image}
                   alt={city.name}
@@ -108,7 +109,7 @@ export default function PortfolioSection() {
 
         {/* CTA Button */}
         <motion.div
-          className="mt-20"
+          className="mt-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}

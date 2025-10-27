@@ -5,22 +5,36 @@ import Image from "next/image";
 
 const WhoWeArePage = () => {
   return (
-    <div className="bg-gray-50 min-h-screen py-20 px-6">
-      <section className="max-w-7xl mx-auto py-12">
+    <div className="bg-gray-50 py-8 px-6"> {/* Reduced top padding */}
+      <section className="max-w-7xl mx-auto">
+        {/* Heading Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            Who <span className="text-[#db071d]">We Are</span>
+          </h2>
+          <p className="text-gray-700 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
+            We are driven by a mission to redefine real estate investing — 
+            combining stability, transparency, and innovation to empower investors everywhere.
+          </p>
+        </motion.div>
+
+        {/* Main Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col lg:flex-row bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 mb-12"
+          className="flex flex-col lg:flex-row bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500"
         >
           {/* Text Section */}
-          <div className="lg:w-1/2 p-8 flex flex-col justify-between">
+          <div className="lg:w-1/2 p-10 flex flex-col justify-between">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Who <span className="text-[#db071d]">We Are</span>
-              </h2>
-
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
                 <span className="font-semibold text-[#db071d]">
                   Real Estate Opportunity
@@ -61,7 +75,7 @@ const WhoWeArePage = () => {
               fill
               className="object-cover w-full h-full"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           </div>
         </motion.div>
       </section>

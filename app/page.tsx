@@ -12,6 +12,7 @@ import TestimonialsSection from '@/components/TestimonialsSection'
 // import Gallery from '@/components/Gallery'
 import AboutREODevelopments from '@/components/About REO DevelopmentsCard'
 import TradingviewWidget from '@/components/tradingview-widget'
+import TrustedCompanies from '@/components/TrustedCompanies'
 
 const page = () => {
   return (
@@ -25,6 +26,7 @@ const page = () => {
       <BenefitsSection />
       <AboutREODevelopments />
       <PortfolioSection />
+      {/* <TrustedCompanies /> */}
       <TestimonialsSection />
       <Footer />
       <ScrollToTop />
