@@ -50,7 +50,6 @@ export default function PaymentForm() {
         utr: "",
       });
 
-      // Refresh page after short delay
       setTimeout(() => {
         window.location.reload();
       }, 1500);
@@ -62,14 +61,12 @@ export default function PaymentForm() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/mumbai.jpg" // <-- Replace this with your building image path
+          src="/images/mumbai.jpg"
           alt="Luxury Property"
           fill
           className="object-cover brightness-[0.35]"
           priority
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 " />
       </div>
 
       {/* Main Card */}
@@ -86,18 +83,46 @@ export default function PaymentForm() {
           </h2>
           <div className="bg-white p-3 rounded-xl shadow-md">
             <Image
-              src="/images/gpay-qr.png"
+              src="/images/qr.jpg"
               alt="GPay QR"
               width={180}
               height={180}
               className="rounded-md"
             />
           </div>
-          <p className="text-sm text-white/90 mt-4 text-center">
-            Use Google Pay / PhonePe / Paytm to scan and pay securely.
+
+          {/* Payment App Logos */}
+          {/* <div className="flex items-center justify-center gap-5 mt-5 bg-white">
+            {[
+              { src: "/images/gpay.png", alt: "Google Pay" },
+              { src: "/images/phonepay.png", alt: "PhonePe" },
+              { src: "/images/paytm.png", alt: "Paytm" },
+            ].map((app) => (
+              <motion.div
+                key={app.alt}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2 bg-white/10 rounded-xl hover:bg-white/20 transition"
+              >
+                <Image
+                  src={app.src}
+                  alt={app.alt}
+                  width={50}
+                  height={50}
+                  className="object-contain"
+                />
+              </motion.div>
+            ))}
+          </div> */}
+
+          <p className="text-sm text-white/80 mt-3 text-center">
+            Scan and pay securely using your preferred app.
           </p>
           <p className="mt-2 text-sm font-semibold text-yellow-300">
-            UPI ID: <span className="text-white">reodevelop@okaxis</span>
+            UPI ID: <span className="text-white">msthearchitizer.eazypay1@icici</span>
+          </p>
+          <p className="text-sm text-white mt-3 text-center">
+            Once your Payment will be verified by our team, you will receive a confirmation email.
           </p>
         </div>
 
@@ -111,9 +136,21 @@ export default function PaymentForm() {
               { name: "name", placeholder: "Full Name", type: "text" },
               { name: "email", placeholder: "Email", type: "email" },
               { name: "phone", placeholder: "Phone Number", type: "tel" },
-              { name: "amount", placeholder: "Payment Amount (₹)", type: "number" },
-              { name: "gpayName", placeholder: "Google Pay Name", type: "text" },
-              { name: "utr", placeholder: "Transaction ID / UTR Number", type: "text" },
+              {
+                name: "amount",
+                placeholder: "Payment Amount (₹)",
+                type: "number",
+              },
+              {
+                name: "gpayName",
+                placeholder: "Google Pay Name",
+                type: "text",
+              },
+              {
+                name: "utr",
+                placeholder: "Transaction ID / UTR Number",
+                type: "text",
+              },
             ].map((field) => (
               <input
                 key={field.name}

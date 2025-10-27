@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 
 const slides = [
   {
-    src: "/images/property1.png",
+    src: "/images/hero-image1.png",
     tagline: "Where Quality Meets Opportunity.",
   },
   {
-    src: "/images/property2.png",
+    src: "/images/hero-image2.jpg",
     tagline: "Over 175 Tenants Across Metro Cities.",
   },
   {
