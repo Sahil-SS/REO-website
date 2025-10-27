@@ -74,9 +74,9 @@ const Navbar = () => {
           <Link href="/about" className="hover:text-[#b80000] transition-colors duration-300">
             Who We Are
           </Link>
-          <Link href="/payment" className="hover:text-[#b80000] transition-colors duration-300">
+          {/* <Link href="/payment" className="hover:text-[#b80000] transition-colors duration-300">
             Pay
-          </Link>
+          </Link> */}
           <Link href="/coming-soon" className="hover:text-[#b80000] transition-colors duration-300">
             Projects
           </Link>
@@ -145,7 +145,7 @@ const Navbar = () => {
                 {[
                   { name: "Home", href: "/" },
                   { name: "Who We Are", href: "/about" },
-                  { name: "Pay", href: "/payment" },
+                  // { name: "Pay", href: "/payment" },
                   { name: "Projects", href: "/coming-soon" },
                   { name: "Loan", href: "/coming-soon" },
                   { name: "Contact Us", href: "/contact-us" },
