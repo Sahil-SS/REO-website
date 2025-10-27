@@ -1,23 +1,52 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { ChevronDown } from "lucide-react";
+import * as LucideIcons from "lucide-react"; // <-- import all icons
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setLoginOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // menu items (icon names must match lucide-react exports, e.g. "Home", "Info", "Building2", "Banknote", "Phone")
+  const menuItems = [
+    { name: "Home", href: "/", icon: "Home" },
+    { name: "Who We Are", href: "/about", icon: "Info" },
+    { name: "Pay", href: "/payment", icon: "Info" },
+    { name: "Projects", href: "/coming-soon", icon: "Building2" },
+    { name: "Loan", href: "/coming-soon", icon: "Banknote" },
+    { name: "Contact Us", href: "/contact-us", icon: "Phone" },
+  ];
 
   return (
     <motion.nav
@@ -54,6 +83,9 @@ const Navbar = () => {
           <Link href="/about" className="hover:text-[#b80000] transition-colors duration-300">
             Who We Are
           </Link>
+                    <Link href="/payment" className="hover:text-[#b80000] transition-colors duration-300">
+            Pay
+          </Link>
           <Link href="/coming-soon" className="hover:text-[#b80000] transition-colors duration-300">
             Projects
           </Link>
@@ -64,151 +96,165 @@ const Navbar = () => {
             Contact Us
           </Link>
 
-          {/* Log In Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setLoginOpen(true)}
-            onMouseLeave={() => setLoginOpen(false)}
-          >
-            <Button className="bg-[#db071d] text-white hover:bg-[#8b0010] rounded-xl px-6 py-2 transition text-sm md:text-base flex items-center gap-1">
-              Log In <ChevronDown className="w-4 h-4" />
+          {/* Log In Dropdown (Click-based) */}
+          <div className="relative" ref={dropdownRef}>
+            <Button
+              onClick={() => setLoginOpen((prev) => !prev)}
+              className="bg-[#db071d] text-white hover:bg-[#8b0010] rounded-xl px-6 py-2 transition text-sm md:text-base flex items-center gap-1"
+            >
+              Log In{" "}
+              <ChevronDown
+                className={`w-4 h-4 transition-transform ${loginOpen ? "rotate-180" : "rotate-0"}`}
+              />
             </Button>
 
-            {loginOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.25 }}
-                className="absolute top-12 right-0 bg-white border border-gray-200 shadow-md rounded-md w-48 py-2 z-50"
-              >
-                <Link
-                  href="/tenant-portal"
-                  className="block px-4 py-2 hover:bg-gray-50 hover:text-[#b80000] transition"
+            <AnimatePresence>
+              {loginOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="absolute top-12 right-0 bg-white border border-gray-200 shadow-md rounded-md w-48 py-2 z-50"
                 >
-                  Tenant Portal
-                </Link>
-                <Link
-                  href="/owner-portal"
-                  className="block px-4 py-2 hover:bg-gray-50 hover:text-[#b80000] transition"
-                >
-                  Owner Portal
-                </Link>
-              </motion.div>
-            )}
+                  <Link
+                    href="/tenant-portal"
+                    className="block px-4 py-2 hover:bg-gray-50 hover:text-[#b80000] transition"
+                    onClick={() => setLoginOpen(false)}
+                  >
+                    Tenant Portal
+                  </Link>
+                  <Link
+                    href="/owner-portal"
+                    className="block px-4 py-2 hover:bg-gray-50 hover:text-[#b80000] transition"
+                    onClick={() => setLoginOpen(false)}
+                  >
+                    Owner Portal
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 
-{/* Mobile Menu */}
-<div className="md:hidden">
-  <Sheet>
-    <SheetTrigger asChild>
-      <HiOutlineMenu className="w-7 h-7 text-gray-800 cursor-pointer" />
-    </SheetTrigger>
+        {/* Mobile Menu */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <HiOutlineMenu className="w-7 h-7 text-gray-800 cursor-pointer" />
+            </SheetTrigger>
 
-    <SheetContent
-      side="right"
-      className="w-72 p-0 flex flex-col bg-white border-l border-gray-200 shadow-2xl [&>button]:hidden"
-    >
-      {/* Custom Header */}
-      <div className="bg-gradient-to-r from-[#f5c518] to-[#e0aa00] p-6 flex justify-between items-center shadow-md">
-        <h2 className="text-xl font-bold text-white">Menu</h2>
-        <SheetClose asChild>
-          <HiOutlineX className="w-6 h-6 cursor-pointer text-white hover:text-yellow-100 transition" />
-        </SheetClose>
-      </div>
-
-      {/* Main Links */}
-      <div className="flex flex-col space-y-4 py-8 px-6 font-medium text-gray-800">
-        {[
-          { name: "Home", href: "/", icon: "Home" },
-          { name: "Who We Are", href: "/about", icon: "Info" },
-          { name: "Projects", href: "/coming-soon", icon: "Building2" },
-          { name: "Loan", href: "/coming-soon", icon: "Banknote" },
-          { name: "Contact Us", href: "/contact-us", icon: "Phone" },
-        ].map((item) => {
-          // eslint-disable-next-line @typescript-eslint/no-require-imports
-          const Icon = require("lucide-react")[item.icon];
-          return (
-            <motion.div
-              key={item.name}
-              whileHover={{ scale: 1.03, x: 4 }}
-              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            <SheetContent
+              side="right"
+              className="w-72 p-0 flex flex-col bg-white border-l border-gray-200 shadow-2xl [&>button]:hidden"
             >
-              <SheetClose asChild>
-                <Link
-                  href={item.href}
-                  className="flex items-center gap-3 text-gray-800 hover:text-[#f5c518] transition-all"
-                >
-                  <Icon className="w-5 h-5 text-[#f5c518]" />
-                  <span>{item.name}</span>
-                </Link>
-              </SheetClose>
-            </motion.div>
-          );
-        })}
-      </div>
+              {/* Header */}
+              <div className="bg-gradient-to-r from-[#f5c518] to-[#e0aa00] p-6 flex justify-between items-center shadow-md">
+                <h2 className="text-xl font-bold text-white">Menu</h2>
+                <SheetClose asChild>
+                  <HiOutlineX className="w-6 h-6 cursor-pointer text-white hover:text-yellow-100 transition" />
+                </SheetClose>
+              </div>
 
-      {/* Divider */}
-      <div className="mx-6 border-t border-gray-200"></div>
+              {/* Links */}
+              <div className="flex flex-col space-y-4 py-8 px-6 font-medium text-gray-800">
+                {menuItems.map((item) => {
+                  // safer lookup of icon from lucide-react import
+                  const Icon = (LucideIcons as any)[item.icon] as React.ComponentType<any> | undefined;
+                  return (
+                    <motion.div
+                      key={item.name}
+                      whileHover={{ scale: 1.03, x: 4 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    >
+                      <SheetClose asChild>
+                        <Link
+                          href={item.href}
+                          className="flex items-center gap-3 text-gray-800 hover:text-[#f5c518] transition-all"
+                        >
+                          {Icon ? <Icon className="w-5 h-5 text-[#f5c518]" /> : <span className="w-5 h-5 inline-block" />}
+                          <span>{item.name}</span>
+                        </Link>
+                      </SheetClose>
+                    </motion.div>
+                  );
+                })}
+              </div>
 
-      {/* Login Section */}
-      <div className="py-6 px-6 bg-gray-50 rounded-t-xl mt-auto">
-        <span className="block text-gray-900 font-semibold mb-3 flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5 text-[#f5c518]"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12h.01M12 15h.01M9 12h.01M12 3C7.582 3 4 6.582 4 11c0 4.418 3.582 8 8 8 4.418 0 8-3.582 8-8 0-4.418-3.582-8-8-8z" />
-          </svg>
-          Log In
-        </span>
+              {/* Divider */}
+              <div className="mx-6 border-t border-gray-200"></div>
 
-        <div className="ml-2 flex flex-col space-y-3 text-gray-700">
-          <SheetClose asChild>
-            <Link
-              href="/tenant-portal"
-              className="flex items-center gap-2 hover:text-[#f5c518] transition"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 text-[#f5c518]"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Tenant Portal
-            </Link>
-          </SheetClose>
+              {/* Login Section */}
+              <div className="py-6 px-6 bg-gray-50 rounded-t-xl mt-auto">
+                <span className="block text-gray-900 font-semibold mb-3 flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-5 h-5 text-[#f5c518]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 12h.01M12 15h.01M9 12h.01M12 3C7.582 3 4 6.582 4 11c0 4.418 3.582 8 8 8 4.418 0 8-3.582 8-8 0-4.418-3.582-8-8-8z"
+                    />
+                  </svg>
+                  Log In
+                </span>
 
-          <SheetClose asChild>
-            <Link
-              href="/owner-portal"
-              className="flex items-center gap-2 hover:text-[#f5c518] transition"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 text-[#f5c518]"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 1.105-.895 2-2 2s-2-.895-2-2 .895-2 2-2 2 .895 2 2zM21 21H3v-2a4 4 0 014-4h10a4 4 0 014 4v2z" />
-              </svg>
-              Owner Portal
-            </Link>
-          </SheetClose>
+                <div className="ml-2 flex flex-col space-y-3 text-gray-700">
+                  <SheetClose asChild>
+                    <Link
+                      href="/tenant-portal"
+                      className="flex items-center gap-2 hover:text-[#f5c518] transition"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-4 h-4 text-[#f5c518]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      Tenant Portal
+                    </Link>
+                  </SheetClose>
+
+                  <SheetClose asChild>
+                    <Link
+                      href="/owner-portal"
+                      className="flex items-center gap-2 hover:text-[#f5c518] transition"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-4 h-4 text-[#f5c518]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 11c0 1.105-.895 2-2 2s-2-.895-2-2 .895-2 2-2 2 .895 2 2zM21 21H3v-2a4 4 0 014-4h10a4 4 0 014 4v2z"
+                        />
+                      </svg>
+                      Owner Portal
+                    </Link>
+                  </SheetClose>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
-      </div>
-    </SheetContent>
-  </Sheet>
-</div>
-
       </motion.div>
     </motion.nav>
   );

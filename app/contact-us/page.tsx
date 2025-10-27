@@ -68,7 +68,7 @@ const ContactPage = () => {
       {/* ===== HERO SECTION ===== */}
       <section className="relative h-[610px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/images/property1.jpg"
+          src="/images/property2.jpg"
           alt="Contact REO Developments"
           fill
           className="object-cover brightness-100"
