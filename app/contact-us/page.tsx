@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaGlobe } from "react-icons/fa";
+import { FaWhatsapp, FaEnvelope, FaGlobe } from "react-icons/fa";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -13,13 +13,18 @@ const ContactPage = () => {
     email: "",
     countryCode: "+91",
     phoneNumber: "",
-    subject: "",
     message: "",
   });
 
-  const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "success" | "error" | "loading"
+  >("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
@@ -32,7 +37,6 @@ const ContactPage = () => {
       const formData = new FormData();
       formData.append("name", form.name);
       formData.append("email", form.email);
-      // formData.append("phone", `${form.countryCode} ${form.phoneNumber}`);
       formData.append("message", form.message);
       formData.append("access_key", "2756ba83-599a-443a-b5a1-1871d615f0db");
       formData.append("from_name", form.name);
@@ -44,7 +48,6 @@ const ContactPage = () => {
       });
 
       const result = await res.json();
-
       if (result.success) {
         setStatus("success");
         setForm({
@@ -52,7 +55,6 @@ const ContactPage = () => {
           email: "",
           countryCode: "+91",
           phoneNumber: "",
-          subject: "",
           message: "",
         });
       } else setStatus("error");
@@ -66,124 +68,113 @@ const ContactPage = () => {
       <Navbar />
 
       {/* ===== HERO SECTION ===== */}
-      <section className="relative h-[610px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <Image
           src="/images/property2.jpg"
           alt="Contact REO Developments"
           fill
-          className="object-cover brightness-100"
+          className="object-cover brightness-90"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/80"></div>
 
         <div className="relative z-10 text-center text-white px-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold mb-4"
+            className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg"
           >
-            Contact Us
+            Let’s Connect and Build Your Future
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-lg md:text-xl max-w-2xl mx-auto text-gray-100 font-light drop-shadow"
+          >
+            Get in touch with our experts to explore investment opportunities
+            that redefine real estate.
+          </motion.p>
         </div>
       </section>
 
-      {/* ===== CONTACT FORM + INFO ===== */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      {/* ===== UNIFIED CARD SECTION ===== */}
+      <section className="max-w-6xl mx-auto px-6 -mt-24 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="grid lg:grid-cols-5 gap-12"
+          className="bg-white rounded-3xl shadow-2xl overflow-hidden grid lg:grid-cols-2"
         >
-          {/* FORM SECTION */}
-          <div className="lg:col-span-3 bg-white shadow-xl rounded-2xl p-8 md:p-12">
+          {/* LEFT: FORM */}
+          <div className="p-10 md:p-14 bg-white">
+            <h2 className="text-3xl font-bold text-[#db071d] mb-6">
+              Get In Touch
+            </h2>
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-5">
-                {/* Name */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Full Name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
-                  />
-                </div>
-
-                {/* Mobile Number with Country Code */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Mobile Number
-                  </label>
-                  <div className="flex items-center gap-3">
-                    {/* <select
-                      name="countryCode"
-                      value={form.countryCode}
-                      onChange={handleChange}
-                      className="p-4 border border-gray-300 rounded-lg bg-gray-50 focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition text-gray-700 font-medium"
-                      style={{ minWidth: "90px" }}
-                    >
-                      <option value="+91">🇮🇳 +91</option>
-                      <option value="+1">🇺🇸 +1</option>
-                      <option value="+44">🇬🇧 +44</option>
-                      <option value="+971">🇦🇪 +971</option>
-                      <option value="+61">🇦🇺 +61</option>
-                      <option value="+65">🇸🇬 +65</option>
-                    </select> */}
-
-                    <input
-                      type="tel"
-                      name="phoneNumber"
-                      placeholder="Enter mobile number"
-                      value={form.phoneNumber}
-                      onChange={handleChange}
-                      required
-                      pattern="[0-9]{6,15}"
-                      className="flex-1 p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
-                    />
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Message
-                  </label>
-                  <textarea
-                    name="message"
-                    placeholder="Message"
-                    rows={5}
-                    value={form.message}
-                    onChange={handleChange}
-                    required
-                    className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition resize-none"
-                  ></textarea>
-                </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                />
               </div>
 
-              {/* Submit Button */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Mobile Number
+                </label>
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  placeholder="Enter mobile number"
+                  value={form.phoneNumber}
+                  onChange={handleChange}
+                  required
+                  pattern="[0-9]{6,15}"
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Your Message
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  rows={5}
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition resize-none"
+                ></textarea>
+              </div>
+
               <button
                 type="submit"
                 disabled={status === "loading"}
@@ -192,7 +183,6 @@ const ContactPage = () => {
                 {status === "loading" ? "SENDING..." : "SEND MESSAGE"}
               </button>
 
-              {/* Status Messages */}
               {status === "success" && (
                 <p className="text-green-600 font-medium">
                   ✅ Message sent successfully!
@@ -206,33 +196,26 @@ const ContactPage = () => {
             </form>
           </div>
 
-          {/* INFO SECTION */}
-          <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white shadow-xl rounded-2xl p-8">
-              <h2 className="text-2xl font-bold mb-6 text-[#db071d]">Contact Us</h2>
-              <h3 className="text-3xl font-bold mb-6">Get In Touch</h3>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                You can also reach out directly via email, phone, or WhatsApp — we are
-                always ready to assist you with your real estate investment needs.
+          {/* RIGHT: INFO (Updated for clean white theme) */}
+          <div className="bg-white text-gray-800 p-10 md:p-14 flex flex-col justify-between border-l border-gray-200">
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-[#db071d]">
+                Contact Information
+              </h2>
+              <p className="text-gray-600 mb-10 leading-relaxed">
+                Reach us anytime — our team is here to assist with your real
+                estate investment goals.
               </p>
 
               <div className="space-y-6">
-                {/* <div className="flex items-start gap-4">
-                  <div className="p-3 bg-[#db071d] rounded-full text-white">
-                    <FaPhoneAlt className="text-lg" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Call Us</h4>
-                    <p className="text-gray-600">+91 84369 69369</p>
-                  </div>
-                </div> */}
-
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-[#db071d] rounded-full text-white">
+                  <div className="p-3 bg-[#f4d35e]/20 rounded-full text-[#db071d]">
                     <FaEnvelope className="text-lg" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Email Us</h4>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      Email Us
+                    </h4>
                     <a
                       href="mailto:support@reodevelop.com"
                       className="text-gray-600 hover:text-[#db071d] transition"
@@ -243,52 +226,41 @@ const ContactPage = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-[#db071d] rounded-full text-white">
+                  <div className="p-3 bg-[#f4d35e]/20 rounded-full text-[#db071d]">
                     <FaGlobe className="text-lg" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Website</h4>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      Website
+                    </h4>
                     <a
                       href="https://www.reodevelop.com"
                       target="_blank"
                       className="text-gray-600 hover:text-[#db071d] transition"
                     >
                       www.reodevelop.com
-
                     </a>
                   </div>
                 </div>
-
-                {/* <div className="flex items-start gap-4">
-                  <div className="p-3 bg-[#db071d] rounded-full text-white">
-                    <FaMapMarkerAlt className="text-lg" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Address</h4>
-                    <p className="text-gray-600">
-                      WorkFlo by OYO Ranka Junction, Bangalore
-                    </p>
-                  </div>
-                </div> */}
               </div>
+            </div>
 
-              <div className="mt-8 pt-8 border-t border-gray-200">
-                <h4 className="font-semibold text-gray-800 mb-4">Follow Us On</h4>
-                <div className="flex gap-3">
-                  <a
-                    href="https://wa.me/+918436969369"
-                    target="_blank"
-                    className="p-3 bg-[#25D366] text-white rounded-full hover:scale-110 transition-transform shadow-lg"
-                  >
-                    <FaWhatsapp className="text-lg" />
-                  </a>
-                  <a
-                    href="mailto:support@reodevelop.com"
-                    className="p-3 bg-[#FF0000] text-white rounded-full hover:scale-110 transition-transform shadow-lg"
-                  >
-                    <FaEnvelope className="text-lg" />
-                  </a>
-                </div>
+            <div className="mt-10 pt-10 border-t border-gray-200">
+              <h4 className="font-semibold text-[#db071d] mb-4">Follow Us</h4>
+              <div className="flex gap-4">
+                <a
+                  href="https://wa.me/+918436969369"
+                  target="_blank"
+                  className="p-3 bg-[#25D366] text-white rounded-full hover:scale-110 transition-transform shadow-md"
+                >
+                  <FaWhatsapp className="text-lg" />
+                </a>
+                <a
+                  href="mailto:support@reodevelop.com"
+                  className="p-3 bg-[#db071d] text-[white] rounded-full hover:scale-110 transition-transform shadow-md"
+                >
+                  <FaEnvelope className="text-lg" />
+                </a>
               </div>
             </div>
           </div>
@@ -296,7 +268,7 @@ const ContactPage = () => {
       </section>
 
       {/* ===== MAP SECTION ===== */}
-      <section className="px-6 pb-20 max-w-7xl mx-auto">
+      <section className="px-6 pb-20 max-w-6xl mx-auto mt-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
