@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Building2, Users, Handshake } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 const AboutPage = () => {
   const stats = [
@@ -39,6 +40,7 @@ const AboutPage = () => {
 
   return (
     <div className="bg-linear-to-b from-white to-gray-50 text-[#1C2B5B]">
+      <Navbar />
       {/* HERO SECTION */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <Image

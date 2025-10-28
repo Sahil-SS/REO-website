@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
 
 const LoanComingSoon = () => {
   const [timer, setTimer] = useState({
@@ -70,6 +71,7 @@ const LoanComingSoon = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col overflow-hidden text-white">
+      <Navbar />
       {/* Rotating background lines */}
       <motion.div
         className="absolute inset-0 pointer-events-none"

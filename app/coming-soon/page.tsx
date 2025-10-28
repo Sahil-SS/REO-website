@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
 
 const ComingSoonPage = () => {
   const [timer, setTimer] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -64,6 +65,7 @@ const ComingSoonPage = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col justify-center items-center px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+      <Navbar />
       {/* Elegant Background Lines */}
       <motion.div
         className="absolute inset-0"
