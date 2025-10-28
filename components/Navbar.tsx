@@ -60,8 +60,8 @@ const Navbar = () => {
           <Image
             src="/images/logo.png"
             alt="REO Developments Logo"
-            width={210}
-            height={90}
+            width={220}
+            height={150}
             className="object-contain"
           />
         </Link>
