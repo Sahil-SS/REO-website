@@ -70,10 +70,10 @@ const ContactPage = () => {
       {/* ===== HERO SECTION ===== */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/images/property2.jpg"
+          src="/images/contact-us-hero.jpg"
           alt="Contact REO Developments"
           fill
-          className="object-cover brightness-90"
+          className="object-cover brightness-125"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/80"></div>
 
