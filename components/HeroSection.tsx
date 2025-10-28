@@ -13,7 +13,7 @@ const slides = [
     tagline: "Over 175 Tenants Across Metro Cities.",
   },
   {
-    src: "/images/property3.png",
+    src: "/images/property4.jpg",
     tagline: "Generating Rental Income with Confidence.",
   },
 ];
@@ -24,7 +24,7 @@ const HeroSection = () => {
   useEffect(() => {
     const timer = setInterval(
       () => setCurrent((prev) => (prev + 1) % slides.length),
-      7000
+      4000
     );
     return () => clearInterval(timer);
   }, []);

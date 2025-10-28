@@ -80,7 +80,7 @@ const Navbar = () => {
           <Link href="/coming-soon" className="hover:text-[#b80000] transition-colors duration-300">
             Projects
           </Link>
-          <Link href="/coming-soon" className="hover:text-[#b80000] transition-colors duration-300">
+          <Link href="/loan-coming-soon" className="hover:text-[#b80000] transition-colors duration-300">
             Loan
           </Link>
           <Link href="/contact-us" className="hover:text-[#b80000] transition-colors duration-300">
@@ -147,7 +147,7 @@ const Navbar = () => {
                   { name: "Who We Are", href: "/about" },
                   // { name: "Pay", href: "/payment" },
                   { name: "Projects", href: "/coming-soon" },
-                  { name: "Loan", href: "/coming-soon" },
+                  { name: "Loan", href: "/loan-coming-soon" },
                   { name: "Contact Us", href: "/contact-us" },
                 ].map((item) => (
                   <motion.div
