@@ -71,7 +71,6 @@ const LoanComingSoon = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col overflow-hidden text-white">
-      <Navbar />
       {/* Rotating background lines */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
