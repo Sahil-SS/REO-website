@@ -228,22 +228,31 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Custom scrollbar */
+/* === UPDATED CUSTOM SCROLLBAR === */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2563eb;
-  border-radius: 4px;
+  background: #db071d; /* Red scrollbar */
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
+  background: #b30617; /* Slightly darker red on hover */
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: #db071d;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #b30617;
 }
 
 /* Performance optimizations */
