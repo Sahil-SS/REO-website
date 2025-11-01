@@ -10,7 +10,7 @@ const AboutPage = () => {
     { label: "Years of Experience", value: "15+" },
     { label: "Tenants Served", value: "175+" },
     { label: "Projects Completed", value: "50+" },
-    { label: "Metro Cities", value: "4+" },
+    { label: "Metro Cities", value: "6+" },
   ];
 
   const locations = [
@@ -18,6 +18,8 @@ const AboutPage = () => {
     { city: "Mumbai", img: "/images/mumbai.jpg" },
     { city: "Delhi", img: "/images/delhi.jpg" },
     { city: "Pune", img: "/images/pune.jpg" },
+    { city: "Hyderabad", img: "/images/hyderabad.jpeg"}
+    { city: "Kolkata", img: "/images/kolkata.jpg"}
   ];
 
   const icons = [
@@ -196,7 +198,7 @@ const AboutPage = () => {
           >
             Our <span className="text-[#db071d]">Presence</span> Across India
           </motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {locations.map((loc, i) => (
               <motion.div
                 key={i}
