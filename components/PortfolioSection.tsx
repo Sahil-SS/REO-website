@@ -8,6 +8,8 @@ const cities = [
   { name: "Bangalore", image: "/images/bangalore.jpg", link: "/cities/bangalore" },
   { name: "Delhi", image: "/images/delhi.jpg", link: "/cities/delhi" },
   { name: "Pune", image: "/images/pune.jpg", link: "/cities/pune" },
+  { name: "Hyderabad", image: "/images/hyderabad.jpeg", link: "cities/hyderabad"},
+  { name: "Kolkata", image: "/images/kolkata.jpg", link: "cities/kolkata"}
 ];
 
 export default function PortfolioSection() {
@@ -42,7 +44,7 @@ export default function PortfolioSection() {
         </motion.p>
 
         {/* Grid of cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {cities.map((city, index) => (
             <motion.div
               key={city.name}
