@@ -26,7 +26,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="relative pt-12 pb-24 bg-gradient-to-b from-white to-gray-50 px-6 md:px-12">
+    <section className="relative pt-5 pb-10 bg-white px-6 md:px-12">
       {/* Title */}
       <div className="max-w-6xl mx-auto text-center mb-12">
         <motion.h2
@@ -50,10 +50,10 @@ const Testimonials = () => {
         {testimonials.map((t, i) => (
           <motion.div
             key={i}
-            className="bg-gray-100/80 border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col items-center text-center hover:shadow-xl hover:border-[#db071d]/40 transition-all duration-300"
+            className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 flex flex-col items-center text-center hover:shadow-xl hover:border-[#db071d]/40 transition-all duration-300"
             whileHover={{
               scale: 1.04,
-              boxShadow: "0px 0px 25px rgba(219, 7, 29, 0.25)",
+              boxShadow: "0px 0px 25px rgba(219, 7, 29, 0.15)",
             }}
           >
             <div className="relative w-20 h-20 mb-4 rounded-full overflow-hidden border-4 border-[#db071d]/20">
@@ -70,14 +70,6 @@ const Testimonials = () => {
           </motion.div>
         ))}
       </div>
-
-      {/* ✨ Elegant Gold Separator Bar */}
-      <motion.div
-        className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#D4AF37] via-[#F5C542] to-[#D4AF37]"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      />
     </section>
   );
 };

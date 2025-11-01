@@ -8,14 +8,14 @@ const cities = [
   { name: "Bangalore", image: "/images/bangalore.jpg", link: "/cities/bangalore" },
   { name: "Delhi", image: "/images/delhi.jpg", link: "/cities/delhi" },
   { name: "Pune", image: "/images/pune.jpg", link: "/cities/pune" },
-  { name: "Hyderabad", image: "/images/hyderabad.jpeg", link: "cities/hyderabad"},
-  { name: "Kolkata", image: "/images/kolkata.jpg", link: "cities/kolkata"}
+  { name: "Hyderabad", image: "/images/hyderabad.jpeg", link: "/cities/hyderabad" },
+  { name: "Kolkata", image: "/images/kolkata.jpg", link: "/cities/kolkata" },
 ];
 
 export default function PortfolioSection() {
   return (
-    // 🔹 Removed the reddish hue and extra spacing below
-    <section className="pt-20 pb-16 bg-white">
+    // 🤍 Pure white seamless section
+    <section className="pt-10 pb-10 bg-white">
       <motion.div
         className="max-w-7xl mx-auto px-6 text-center"
         initial="hidden"
@@ -23,14 +23,14 @@ export default function PortfolioSection() {
         viewport={{ once: true, amount: 0.3 }}
       >
         {/* Heading */}
-        <motion.h2
-          className="text-5xl font-bold mb-6 bg-gradient-to-r from-[#db071d] to-[#8b0010] bg-clip-text text-transparent"
+        <motion.h1
+          className="text-4xl font-bold mb-6 bg-gradient-to-r from-[#db071d] to-[#8b0010] bg-clip-text text-transparent"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           Explore REO Properties
-        </motion.h2>
+        </motion.h1>
 
         {/* Description */}
         <motion.p
@@ -60,7 +60,7 @@ export default function PortfolioSection() {
                 y: -6,
               }}
               whileTap={{ scale: 0.97 }}
-              className="relative w-full h-80 overflow-hidden rounded-3xl cursor-pointer group shadow-md hover:shadow-xl transition-all duration-400"
+              className="relative w-full h-80 overflow-hidden rounded-3xl cursor-pointer group shadow-md hover:shadow-xl transition-all duration-400 bg-white"
               viewport={{ once: true, margin: "-50px" }}
             >
               <Link href="/coming-soon">
@@ -101,7 +101,7 @@ export default function PortfolioSection() {
                   </motion.div>
                 </div>
 
-                {/* Subtle Glow */}
+                {/* Glow effects */}
                 <div className="absolute top-4 right-4 w-16 h-16 bg-[#db071d]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute bottom-4 left-4 w-12 h-12 bg-[#F5E6E0]/30 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </Link>
@@ -117,7 +117,7 @@ export default function PortfolioSection() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <motion.button
-            className="bg-[#db071d] text-white px-10 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-2xl hover:bg-[#8b0010] transition-all duration-300"
+            className="bg-[#db071d] text-white px-10 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:bg-[#8b0010] transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
