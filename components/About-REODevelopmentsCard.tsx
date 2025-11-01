@@ -20,7 +20,7 @@ const WhoWeArePage = () => {
             Who <span className="text-[#db071d]">We Are</span>
           </h2>
           <p className="text-2xl font-semibold text-gray-800 mb-4">
-            Where Quality Meets Opportunity!!
+            Where Quality Meets Opportunity
           </p>
           <p className="text-gray-700 mt-4 max-w-3xl mx-auto text-lg leading-relaxed">
             Real Estates Opportunity (REO) is committed to creating and maintaining 
