@@ -1,24 +1,30 @@
-// import AboutBrief from '@/components/AboutBrief'
-import BenefitsSection from '@/components/BenefitsSection'
-import HeroSection from '@/components/HeroSection'
-// import KeyHighlights from '@/components/KeyHighlights'
-import Navbar from '@/components/Navbar'
-import PortfolioSection from '@/components/PortfolioSection'
-import Footer from '@/components/Footer'
-import ScrollToTop from '@/components/ScrollToTop'
-import React from 'react'
-// import LoadingSpinner from '@/components/LoadingSpinner'
-import TestimonialsSection from '@/components/TestimonialsSection'
-// import Gallery from '@/components/Gallery'
-import EnquireNowButton from '@/components/EnquireNowButton'
-import AboutREODevelopments from '@/components/About-REODevelopmentsCard'
-import TradingviewWidget from '@/components/tradingview-widget'
-import TrustedCompanies from '@/components/TrustedCompanies'
+"use client";
 
-const page = () => {
+import React, { useState } from "react";
+import BenefitsSection from "@/components/BenefitsSection";
+import HeroSection from "@/components/HeroSection";
+// import AboutBrief from '@/components/AboutBrief'
+// import KeyHighlights from '@/components/KeyHighlights'
+import Navbar from "@/components/Navbar";
+import PortfolioSection from "@/components/PortfolioSection";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
+// import LoadingSpinner from '@/components/LoadingSpinner'
+import TestimonialsSection from "@/components/TestimonialsSection";
+// import Gallery from '@/components/Gallery'
+import EnquireNowButton from "@/components/EnquireNowButton";
+import AboutREODevelopments from "@/components/About-REODevelopmentsCard";
+import TradingviewWidget from "@/components/tradingview-widget";
+import TrustedCompanies from "@/components/TrustedCompanies";
+
+const Page = () => {
+  const [menuOpen, setMenuOpen] = useState(false); // 👈 Track navbar menu state
+
   return (
     <main>
-      <Navbar />
+      {/* Navbar with menu state setter */}
+      <Navbar setMenuOpen={setMenuOpen} />
+
       <HeroSection />
       <TradingviewWidget />
       {/* <Gallery /> */}
@@ -31,10 +37,13 @@ const page = () => {
       <TestimonialsSection />
       <Footer />
       <ScrollToTop />
-      <EnquireNowButton />
+
+      {/* Hide Enquire Button if navbar menu is open */}
+      {!menuOpen && <EnquireNowButton />}
+
       {/* <LoadingSpinner /> */}
     </main>
-  )
-}
+  );
+};
 
-export default page
+export default Page;
