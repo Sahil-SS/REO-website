@@ -42,11 +42,23 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
       {/* ---------- Navbar ---------- */}
       <motion.nav
         initial={{ y: -80 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          scrolled ? "bg-white shadow-md border-b border-gray-200" : "bg-transparent"
-        }`}
+        animate={{
+          y: 0,
+          backgroundColor: scrolled
+            ? "rgba(255, 255, 255, 1)"
+            : "rgba(255, 255, 255, 0)", // Fully transparent when not scrolled
+          boxShadow: scrolled
+            ? "0 2px 12px rgba(0,0,0,0.08)"
+            : "0 0 0 rgba(0,0,0,0)",
+          borderBottomColor: scrolled
+            ? "rgba(229,231,235,1)"
+            : "rgba(229,231,235,0)",
+        }}
+        transition={{
+          duration: 0.4,
+          ease: "easeInOut",
+        }}
+        className="fixed top-0 left-0 w-full z-50 border-b backdrop-blur-0"
       >
         <motion.div
           className="max-w-[1800px] mx-auto flex items-center justify-between px-6 md:px-14"

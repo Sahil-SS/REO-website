@@ -28,7 +28,7 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-16 px-6 text-center">
+    <section className="bg-white mt-10 px-6 text-center">
       {/* Section Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -59,15 +59,13 @@ export default function BenefitsSection() {
             key={index}
             whileHover={{
               y: -10,
-              boxShadow: "0 12px 30px rgba(219, 7, 29, 0.15)",
+              boxShadow: "0 12px 30px rgba(219, 7, 29, 0.1)",
             }}
             transition={{ duration: 0.3 }}
             className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 hover:border-[#db071d]/30 transition-all duration-300 cursor-pointer"
           >
             <div className="flex flex-col items-center space-y-5">
-              <div className="p-4 bg-[#db071d]/10 rounded-full">
-                {item.icon}
-              </div>
+              <div className="p-4 bg-[#db071d]/10 rounded-full">{item.icon}</div>
               <h3 className="text-lg font-semibold text-gray-900 tracking-tight">
                 {item.title}
               </h3>

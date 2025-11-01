@@ -5,55 +5,54 @@ import Image from "next/image";
 
 const TrustedCompanies = () => {
   const companies = [
-    { name: "Accenture", logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/Accenture.svg" },
-    { name: "Capgemini", logo: "https://companieslogo.com/img/orig/CAP.PA_BIG-9f9e56d3.png" },
-    { name: "Tech Mahindra", logo: "https://companieslogo.com/img/orig/TECHM.NS_BIG-b7b37c9d.png" },
-    { name: "KPMG", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/KPMG_logo.svg" },
-    { name: "Genpact", logo: "https://companieslogo.com/img/orig/G_1f0a46b1.png" },
-    { name: "Wipro", logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Wipro_Primary_Logo_Color_RGB.svg" },
-    { name: "TCS", logo: "https://companieslogo.com/img/orig/TCS.NS_BIG-7a9c8a7b.png" },
-    { name: "Oracle", logo: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" },
-    { name: "Nestle", logo: "https://upload.wikimedia.org/wikipedia/en/6/6b/Nestle_textlogo_blue.svg" },
-    { name: "Britannia", logo: "https://upload.wikimedia.org/wikipedia/en/f/f8/Britannia_Industries_logo.svg" },
-    { name: "Aditya Birla", logo: "https://upload.wikimedia.org/wikipedia/en/9/9a/Aditya_Birla_Group_logo.svg" },
-    { name: "Sun Pharma", logo: "https://companieslogo.com/img/orig/SUNPHARMA.NS_BIG-6bce595f.png" },
-    { name: "Dabur", logo: "https://upload.wikimedia.org/wikipedia/en/0/04/Dabur_logo.svg" },
-    { name: "Haldiram's", logo: "https://upload.wikimedia.org/wikipedia/en/1/1e/Haldiram%27s_Logo.svg" },
-    { name: "Colgate", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Colgate_logo.svg" },
-    { name: "Berger Paints", logo: "https://companieslogo.com/img/orig/BERGEPAINT.NS_BIG-67f4ad54.png" },
-    { name: "Emami", logo: "https://companieslogo.com/img/orig/EMAMILTD.NS_BIG-2f5b36a4.png" },
-    { name: "Titan", logo: "https://upload.wikimedia.org/wikipedia/en/f/f1/Titan_Company_Logo.svg" },
-    { name: "HCL", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7f/HCL_Technologies_Logo.svg" },
-    { name: "SAIL", logo: "https://upload.wikimedia.org/wikipedia/en/4/4a/Sail_logo.svg" },
+    { name: "Accenture", logo: "/company-logo/accenture.png" },
+    { name: "Capgemini", logo: "/company-logo/capgemini.png" },
+    { name: "Tech Mahindra", logo: "/company-logo/techmahindra.png" },
+    { name: "KPMG", logo: "/company-logo/kpmg.png" },
+    { name: "Genpact", logo: "/company-logo/genpact.png" },
+    { name: "Wipro", logo: "/company-logo/wipro.png" },
+    { name: "TCS", logo: "/company-logo/tcs.png" },
+    { name: "Oracle", logo: "/company-logo/oracle.png" },
+    { name: "Nestle", logo: "/company-logo/nestle.png" },
+    { name: "Britannia", logo: "/company-logo/britannia.png" },
+    { name: "Aditya Birla", logo: "/company-logo/adityabirla.png" },
+    { name: "Sun Pharma", logo: "/company-logo/sunpharma.png" },
+    { name: "Dabur", logo: "/company-logo/dabur.png" },
+    { name: "Haldirams", logo: "/company-logo/haldirams.png" },
+    { name: "Colgate", logo: "/company-logo/colgate.png" },
+    { name: "Berger Paints", logo: "/company-logo/bergerpaints.png" },
+    { name: "Emami", logo: "/company-logo/emami.png" },
+    { name: "Titan", logo: "/company-logo/titan.png" },
+    { name: "HCL", logo: "/company-logo/hcl.png" },
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-10 bg-white pb-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Title */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-10 md:mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-4xl font-bold text-gray-900 mb-2">
             Trusted by Top Companies Across{" "}
             <span className="text-[#db071d]">India</span>
-          </h2>
-          <p className="text-gray-600 text-lg">
+          </h1>
+          <p className="text-gray-600 text-sm md:text-base">
             Our learners and professionals work with these industry leaders.
           </p>
         </motion.div>
 
         {/* Logo Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-8 md:gap-10 items-center justify-items-center mb-12"
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center mb-10"
         >
           {companies.map((company, index) => (
             <motion.div
@@ -61,16 +60,16 @@ const TrustedCompanies = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.03 }}
-              whileHover={{ scale: 1.12 }}
-              className="transition-all grayscale hover:grayscale-0 cursor-pointer opacity-80 hover:opacity-100"
+              transition={{ duration: 0.4, delay: index * 0.02 }}
+              whileHover={{ scale: 1.36 }}
+              className="flex items-center justify-center transition-transform duration-300 ease-out"
             >
-              <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center p-2">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 flex items-center justify-center cursor-pointer">
                 <Image
                   src={company.logo}
                   alt={`${company.name} logo`}
-                  width={96}
-                  height={96}
+                  width={112}
+                  height={112}
                   className="object-contain w-full h-full"
                   unoptimized
                 />
@@ -81,11 +80,11 @@ const TrustedCompanies = () => {
 
         {/* Tagline */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center text-lg md:text-xl text-gray-700 italic"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center text-base md:text-lg text-gray-700 italic"
         >
           The list of trusted partners is{" "}
           <span className="bg-yellow-300 text-black px-2 py-1 font-semibold rounded-md not-italic">
@@ -94,6 +93,13 @@ const TrustedCompanies = () => {
           .
         </motion.p>
       </div>
+      {/* ✨ Elegant Gold Separator Bar
+      <motion.div
+        className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#D4AF37] via-[#F5C542] to-[#D4AF37]"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      /> */}
     </section>
   );
 };
