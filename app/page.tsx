@@ -10,6 +10,7 @@ import React from 'react'
 // import LoadingSpinner from '@/components/LoadingSpinner'
 import TestimonialsSection from '@/components/TestimonialsSection'
 // import Gallery from '@/components/Gallery'
+import EnquireNowButton from '@/components/EnquireNowButton'
 import AboutREODevelopments from '@/components/About-REODevelopmentsCard'
 import TradingviewWidget from '@/components/tradingview-widget'
 import TrustedCompanies from '@/components/TrustedCompanies'
@@ -30,6 +31,7 @@ const page = () => {
       <TestimonialsSection />
       <Footer />
       <ScrollToTop />
+      <EnquireNowButton />
       {/* <LoadingSpinner /> */}
     </main>
   )
