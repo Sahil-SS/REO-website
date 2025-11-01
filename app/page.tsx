@@ -15,7 +15,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import EnquireNowButton from "@/components/EnquireNowButton";
 import AboutREODevelopments from "@/components/About-REODevelopmentsCard";
 import TradingviewWidget from "@/components/tradingview-widget";
-import TrustedCompanies from "@/components/TrustedCompanies";
+// import TrustedCompanies from "@/components/TrustedCompanies";
 
 const Page = () => {
   const [menuOpen, setMenuOpen] = useState(false); // 👈 Track navbar menu state

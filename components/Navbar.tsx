@@ -63,9 +63,9 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
           transition={{ duration: 0.7, ease: "easeInOut" }}
         >
           {/* ---------- Logo ---------- */}
-          <Link href="/" className="flex items-center flex-shrink-0">
+          <Link href="/" className="flex items-center shrink-0">
             <motion.div
-              className="relative flex-shrink-0"
+              className="relative shrink-0"
               animate={{
                 width: scrolled ? 120 : 150,
                 height: scrolled ? 35 : 45,
@@ -115,7 +115,7 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
           </div>
 
           {/* ---------- Desktop Log In ---------- */}
-          <div className="hidden lg:flex items-center flex-shrink-0">
+          <div className="hidden lg:flex items-center shrink-0">
             <div className="relative" ref={dropdownRef}>
               <Button
                 onClick={() => setLoginOpen((prev) => !prev)}
@@ -138,14 +138,14 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
                     className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 border border-gray-100"
                   >
                     <Link
-                      href="/admin-login"
+                      href="/coming-soon"
                       className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                       onClick={() => setLoginOpen(false)}
                     >
                       Admin Login
                     </Link>
                     <Link
-                      href="/user-login"
+                      href="/coming-soon"
                       className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                       onClick={() => setLoginOpen(false)}
                     >
