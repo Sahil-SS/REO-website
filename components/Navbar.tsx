@@ -10,6 +10,7 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
   const [scrolled, setScrolled] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
   const [menuOpenState, setMenuOpenState] = useState(false);
+  const [portalOpen, setPortalOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,6 +23,7 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setLoginOpen(false);
+        setPortalOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -37,119 +39,85 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
 
   return (
     <>
-      {/* ---------- Main Navbar ---------- */}
+      {/* ---------- Navbar ---------- */}
       <motion.nav
         initial={{ y: -80 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="fixed top-0 left-0 w-full z-50 transition-all duration-700"
-        style={{
-          backgroundColor: scrolled
-            ? "rgba(255, 255, 255, 0.98)"
-            : "rgba(255, 255, 255, 0)",
-          boxShadow: scrolled ? "0 2px 12px rgba(0,0,0,0.08)" : "none",
-          borderBottom: scrolled
-            ? "1px solid rgba(0,0,0,0.08)"
-            : "1px solid rgba(0,0,0,0)",
-          backdropFilter: "none",
-          WebkitBackdropFilter: "none",
-        }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          scrolled ? "bg-white shadow-md border-b border-gray-200" : "bg-transparent"
+        }`}
       >
         <motion.div
-          className="max-w-[1800px] mx-auto flex items-center justify-between px-6 md:px-14 transition-all duration-700"
-          animate={{
-            height: scrolled ? "70px" : "85px",
-          }}
-          transition={{ duration: 0.7, ease: "easeInOut" }}
+          className="max-w-[1800px] mx-auto flex items-center justify-between px-6 md:px-14"
+          animate={{ height: scrolled ? "70px" : "85px" }}
+          transition={{ duration: 0.4 }}
         >
           {/* ---------- Logo ---------- */}
           <Link href="/" className="flex items-center shrink-0">
             <motion.div
-              className="relative shrink-0"
               animate={{
                 width: scrolled ? 120 : 150,
                 height: scrolled ? 35 : 45,
               }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
+              transition={{ duration: 0.3 }}
             >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={scrolled ? "scrolled" : "top"}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.45, ease: "easeInOut" }}
-                  className="absolute inset-0"
-                >
-                  <Image
-                    src="/images/logo.png"
-                    alt="REO Developments Logo"
-                    width={scrolled ? 120 : 150}
-                    height={scrolled ? 35 : 45}
-                    className="object-contain"
-                    priority
-                    style={{
-                      filter: scrolled ? "none" : "brightness(0) invert(1)",
-                    }}
-                  />
-                </motion.div>
-              </AnimatePresence>
+              <Image
+                src="/images/logo.png"
+                alt="REO Developments Logo"
+                width={scrolled ? 120 : 150}
+                height={scrolled ? 35 : 45}
+                className={`object-contain transition-all duration-300 ${
+                  scrolled ? "brightness-100" : "brightness-0 invert"
+                }`}
+                priority
+              />
             </motion.div>
           </Link>
 
-          {/* ---------- Desktop Nav Links ---------- */}
+          {/* ---------- Desktop Links ---------- */}
           <div
-            className={`hidden lg:flex items-center justify-center flex-1 gap-14 font-medium transition-colors duration-700 text-[18px] ${
+            className={`hidden lg:flex items-center justify-end flex-1 gap-10 font-medium transition-all duration-300 text-[18px] ${
               scrolled ? "text-gray-800" : "text-white"
             }`}
           >
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="hover:text-[#db071d] transition"
-              >
+              <Link key={link.href} href={link.href} className="hover:text-[#db071d] transition">
                 {link.label}
               </Link>
             ))}
-          </div>
 
-          {/* ---------- Desktop Log In ---------- */}
-          <div className="hidden lg:flex items-center shrink-0">
+            {/* ---------- Portals Dropdown ---------- */}
             <div className="relative" ref={dropdownRef}>
-              <Button
-                onClick={() => setLoginOpen((prev) => !prev)}
-                className={`rounded-lg px-7 py-2.5 transition-all duration-700 text-[17px] font-medium flex items-center gap-2 ${
-                  scrolled
-                    ? "bg-[#db071d] text-white hover:bg-[#8b0010]"
-                    : "bg-[#db071d]/90 text-white hover:bg-[#db071d]"
-                }`}
+              <button
+                onClick={() => setPortalOpen((prev) => !prev)}
+                className="flex items-center gap-1 hover:text-[#db071d] transition"
               >
-                Log In <ChevronDown className="w-4 h-4" />
-              </Button>
+                Portals <ChevronDown className="w-4 h-4" />
+              </button>
 
               <AnimatePresence>
-                {loginOpen && (
+                {portalOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 border border-gray-100"
+                    className="absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-lg py-2 border border-gray-100 text-gray-700"
                   >
                     <Link
                       href="/coming-soon"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      onClick={() => setLoginOpen(false)}
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={() => setPortalOpen(false)}
                     >
-                      Admin Login
+                      Tenant Portal
                     </Link>
                     <Link
                       href="/coming-soon"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      onClick={() => setLoginOpen(false)}
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={() => setPortalOpen(false)}
                     >
-                      User Login
+                      Owner Portal
                     </Link>
                   </motion.div>
                 )}
@@ -157,12 +125,46 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
             </div>
           </div>
 
+          {/* ---------- Log In Button ---------- */}
+          <div className="hidden lg:flex items-center shrink-0 ml-8" ref={dropdownRef}>
+            <Button
+              onClick={() => setLoginOpen((prev) => !prev)}
+              className={`rounded-lg px-7 py-2.5 text-[17px] font-medium flex items-center gap-2 transition-all duration-300 ${
+                scrolled
+                  ? "bg-[#db071d] text-white hover:bg-[#8b0010]"
+                  : "bg-[#db071d]/90 text-white hover:bg-[#db071d]"
+              }`}
+            >
+              Log In <ChevronDown className="w-4 h-4" />
+            </Button>
+
+            <AnimatePresence>
+              {loginOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 border border-gray-100"
+                >
+                  <Link
+                    href="/coming-soon"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setLoginOpen(false)}
+                  >
+                    User Login
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           {/* ---------- Mobile Hamburger ---------- */}
           <div className="flex lg:hidden">
             <button
               onClick={() => {
                 setMenuOpenState(true);
-                setMenuOpen?.(true); // notify parent (optional)
+                setMenuOpen?.(true);
               }}
               aria-label="Open Menu"
               className={`p-2 rounded-md transition ${
@@ -179,7 +181,6 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
       <AnimatePresence>
         {menuOpenState && (
           <>
-            {/* Overlay */}
             <motion.div
               className="fixed inset-0 bg-black/50 z-40"
               initial={{ opacity: 0 }}
@@ -191,7 +192,6 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
               }}
             />
 
-            {/* Sidebar */}
             <motion.aside
               className="fixed top-0 right-0 h-full w-72 bg-white z-50 shadow-lg flex flex-col"
               initial={{ x: "100%" }}
@@ -233,6 +233,42 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
                     {link.label}
                   </Link>
                 ))}
+
+                {/* Mobile Portals */}
+                <div>
+                  <button
+                    onClick={() => setPortalOpen((prev) => !prev)}
+                    className="flex items-center justify-between w-full hover:text-[#db071d]"
+                  >
+                    Portals <ChevronDown className="w-5 h-5" />
+                  </button>
+                  <AnimatePresence>
+                    {portalOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="ml-4 mt-2 flex flex-col gap-3 text-[16px]"
+                      >
+                        <Link
+                          href="/coming-soon"
+                          className="hover:text-[#db071d]"
+                          onClick={() => setMenuOpenState(false)}
+                        >
+                          Tenant Portal
+                        </Link>
+                        <Link
+                          href="/coming-soon"
+                          className="hover:text-[#db071d]"
+                          onClick={() => setMenuOpenState(false)}
+                        >
+                          Owner Portal
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </nav>
 
               <div className="px-6 mt-auto pb-8">
