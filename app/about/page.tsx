@@ -18,8 +18,8 @@ const AboutPage = () => {
     { city: "Mumbai", img: "/images/mumbai.jpg" },
     { city: "Delhi", img: "/images/delhi.jpg" },
     { city: "Pune", img: "/images/pune.jpg" },
-    { city: "Hyderabad", img: "/images/hyderabad.jpeg"}
-    { city: "Kolkata", img: "/images/kolkata.jpg"}
+    { city: "Hyderabad", img: "/images/hyderabad.jpeg"},
+    { city: "Kolkata", img: "/images/kolkata.jpg"},
   ];
 
   const icons = [
@@ -46,7 +46,7 @@ const AboutPage = () => {
       {/* HERO SECTION */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/images/property1.jpg"
+          src="/images/about-hero.jpg"
           alt="About REO Developments"
           fill
           className="object-cover brightness-[0.6]"
@@ -61,13 +61,13 @@ const AboutPage = () => {
             REO Developments
           </h1>
           <h3 className="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
-            Building Spaces that Inspire Growth
+            Crafting Spaces Where Dreams Take Shape
           </h3>
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
             At{" "}
-            <span className="font-semibold text-white">REO Developments</span>,
-            we create sustainable and dynamic workspaces designed to empower
-            people and businesses.
+          <span className="font-semibold text-white">REO Developments</span>,
+            we create sustainable ecosystems that empower businesses to thrive 
+            and communities to flourish.
           </p>
         </motion.div>
       </section>
@@ -85,39 +85,45 @@ const AboutPage = () => {
           <div className="lg:w-1/2 p-8 flex flex-col justify-between">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Who <span className="text-[#db071d]">We Are</span>
+                 Who <span className="text-[#db071d]">We Are</span>
               </h2>
-
-              <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                <span className="font-semibold text-[#db071d]">
-                  Real Estate Opportunity
-                </span>{" "}
-                possesses the resources and expertise necessary to assist you in
-                achieving your investment goals. Alongside our work with
-                commercial properties, we have significant experience managing
-                challenging Class B and C low-income properties.
+              <p className="text-2xl font-semibold text-gray-800 mb-4">
+                Where Quality Meets Opportunity
               </p>
 
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                Always prioritizing the bottom line, we provide opportunities to
-                explore a diverse range of unique investment options while
-                reducing expenses and enhancing potential returns.
+                Real Estates Opportunity (REO) is committed to creating and maintaining 
+                work environments that foster sustainable ecosystems. These spaces enhance 
+                environmental wellness and support the long-term health of people and 
+                surrounding communities.
+              </p>
+
+              <p className="text-gray-700 leading-relaxed text-lg mb-4">
+              <span className="font-semibold text-[#db071d]">REO</span> possesses 
+                the expertise and resources required to help you achieve your investment 
+                objectives. Alongside our extensive experience with commercial and 
+                residential properties, we have a significant background in successfully 
+                managing challenging Class B and C urban properties.
+              </p>
+
+              <p className="text-gray-700 leading-relaxed text-lg mb-4">
+                Always focused on your bottom line, we offer you the opportunity to 
+                take advantage of a wide range of unique investments, all while 
+                minimizing your costs and maximizing the potential upside.
               </p>
 
               <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                With our extensive experience in the markets we serve, we excel
-                at identifying opportunities and helping our clients capitalize
-                on them. Whether you are a new or seasoned investor, you can
-                rely on us to achieve the results you desire.
+                We have strong faith in our management team and assure all our 
+                shareholders that we will assist them in generating substantial income 
+                from an urban setting, a goal that many aspire to achieve.
               </p>
             </div>
 
-            <div className="p-6 bg-gradient-to-r from-[#FFE5E5] to-[#FFD6D6] border-l-4 border-[#db071d] rounded-xl shadow-lg mt-4">
-              <p className="text-[#1C2B5B] font-medium leading-relaxed">
-                “We don’t just build properties — we build ecosystems that
-                sustain businesses and communities for generations.”
-              </p>
-            </div>
+<div className="p-6 bg-gradient-to-r from-[#FFE5E5] to-[#FFD6D6] border-l-4 border-[#db071d] rounded-xl shadow-lg mt-4">
+  <p className="text-[#1C2B5B] font-medium leading-relaxed italic">
+    "We put the real in real estate."
+  </p>
+</div>
           </div>
 
           {/* Image Section */}
@@ -132,6 +138,7 @@ const AboutPage = () => {
           </div>
         </motion.div>
       </section>
+      
 
       {/* STATS SECTION */}
       <section className="relative py-16 bg-gradient-to-r from-[#db071d] to-[#B31E1E] text-white overflow-hidden">
