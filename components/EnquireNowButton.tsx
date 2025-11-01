@@ -59,7 +59,7 @@ const EnquireNowButton = () => {
       {/* Floating Enquire Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed right-0 top-1/2 -translate-y-1/2 bg-[#1e3a8a] text-white px-4 py-8 rounded-l-lg shadow-lg z-50 flex items-center gap-2 hover:bg-[#1e40af] transition-colors"
+        className="fixed right-0 top-1/2 -translate-y-1/2 bg-[#db071d] text-white px-4 py-4 rounded-l-lg shadow-lg z-50 flex items-center gap-2 hover:bg-[#db071d] transition-colors cursor-pointer"
         initial={{ x: 100 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5, delay: 1 }}
