@@ -10,7 +10,7 @@ import React from 'react'
 // import LoadingSpinner from '@/components/LoadingSpinner'
 import TestimonialsSection from '@/components/TestimonialsSection'
 // import Gallery from '@/components/Gallery'
-import AboutREODevelopments from '@/components/About REO DevelopmentsCard'
+import AboutREODevelopments from '@/components/About-REODevelopmentsCard'
 import TradingviewWidget from '@/components/tradingview-widget'
 import TrustedCompanies from '@/components/TrustedCompanies'
 
