@@ -1,143 +1,294 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaTwitter } from "react-icons/fa";
+import { FaWhatsapp, FaEnvelope, FaGlobe } from "react-icons/fa";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [loginOpen, setLoginOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+const ContactPage = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    countryCode: "+91",
+    phoneNumber: "",
+    message: "",
+  });
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [status, setStatus] = useState<
+    "idle" | "success" | "error" | "loading"
+  >("idle");
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setLoginOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("email", form.email);
+      formData.append("message", form.message);
+      formData.append("access_key", "2756ba83-599a-443a-b5a1-1871d615f0db");
+      formData.append("from_name", form.name);
+      formData.append("subject", "New Contact - REO Developments");
+
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        setStatus("success");
+        setForm({
+          name: "",
+          email: "",
+          countryCode: "+91",
+          phoneNumber: "",
+          message: "",
+        });
+      } else setStatus("error");
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
-    <>
-      {/* ---------- Left Social Strip (desktop only) ---------- */}
-      <aside
-        aria-hidden={false}
-        className={`hidden lg:flex fixed left-6 top-1/3 flex-col items-center z-[60] select-none`}
-      >
-        <div
-          className={`w-px mb-6 transition-colors ${scrolled ? "bg-gray-300" : "bg-white/50"}`}
-          style={{ height: 96 }}
+    <div className="bg-gray-50 text-gray-800">
+      <Navbar />
+
+      {/* ===== HERO SECTION ===== */}
+      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+        <Image
+          src="/images/contactus-hero.jpg"
+          alt="Contact REO Developments"
+          fill
+          className="object-cover brightness-125"
         />
-        <nav aria-label="Social media" className="flex flex-col items-center gap-6">
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
-             className={`transition transform hover:-translate-y-1 ${scrolled ? "text-gray-700" : "text-white/90"}`}>
-            <FaFacebookF className="w-5 h-5" />
-          </a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
-             className={`transition transform hover:-translate-y-1 ${scrolled ? "text-gray-700" : "text-white/90"}`}>
-            <FaInstagram className="w-5 h-5" />
-          </a>
-          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
-             className={`transition transform hover:-translate-y-1 ${scrolled ? "text-gray-700" : "text-white/90"}`}>
-            <FaTwitter className="w-5 h-5" />
-          </a>
-          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"
-             className={`transition transform hover:-translate-y-1 ${scrolled ? "text-gray-700" : "text-white/90"}`}>
-            <FaYoutube className="w-5 h-5" />
-          </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-             className={`transition transform hover:-translate-y-1 ${scrolled ? "text-gray-700" : "text-white/90"}`}>
-            <FaLinkedinIn className="w-5 h-5" />
-          </a>
-        </nav>
-        <div className={`w-px mt-6 transition-colors ${scrolled ? "bg-gray-300" : "bg-white/10"}`} style={{ height: 40 }} />
-      </aside>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/80"></div>
 
-      {/* ---------- Enquire Now tab (right) ---------- */}
-      {/* Note: hidden on small screens, visible on lg+. z-[90] so it sits above navbar (z-50). 
-          I added a temporary red ring so you can see it — remove `ring-2 ring-red-400` after confirming. */}
-      <aside className="fixed right-2 top-1/2 transform -translate-y-1/2 z-[90] hidden lg:flex pointer-events-auto">
-        <Link href="/contact-us" aria-label="Enquire Now" className="group">
-          <div
-            className="flex items-center justify-center bg-[#2e3a9b] hover:bg-[#253177] text-white rounded-l-lg shadow-lg px-3 py-2 cursor-pointer ring-2 ring-red-400"
-            style={{
-              writingMode: "vertical-rl",
-              textOrientation: "mixed",
-              // don't rotate unless you want reverse direction — keep readable
-            }}
+        <div className="relative z-10 text-center text-white px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg"
           >
-            <span className="font-medium text-sm tracking-wide select-none transition-transform group-hover:scale-105">
-              Enquire Now
-            </span>
-          </div>
-        </Link>
-      </aside>
+            Let’s Connect and Build Your Future
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-lg md:text-xl max-w-2xl mx-auto text-gray-100 font-light drop-shadow"
+          >
+            Get in touch with our experts to explore investment opportunities
+            that redefine real estate.
+          </motion.p>
+        </div>
+      </section>
 
-      {/* ---------- Main Navbar ---------- */}
-      <motion.nav
-        initial={{ y: -80 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${
-          scrolled ? "bg-white shadow-lg border-b border-gray-200" : "bg-transparent"
-        }`}
-      >
+      {/* ===== UNIFIED CARD SECTION ===== */}
+      <section className="max-w-6xl mx-auto px-6 -mt-24 relative z-20">
         <motion.div
-          className="max-w-[1800px] mx-auto flex items-center justify-between px-14 transition-all duration-700"
-          animate={{ height: scrolled ? "70px" : "85px" }}
-          transition={{ duration: 0.7, ease: "easeInOut" }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="bg-white rounded-3xl shadow-[0_0_50px_-10px_rgba(219,7,29,0.8)] overflow-hidden grid lg:grid-cols-2 border border-[#db071d]/60"
         >
-          {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0">
-            <motion.div className="relative flex-shrink-0" animate={{ width: scrolled ? 120 : 150, height: scrolled ? 35 : 45 }} transition={{ duration: 0.7, ease: "easeInOut" }}>
-              <AnimatePresence mode="wait">
-                <motion.div key={scrolled ? "scrolled" : "top"} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45, ease: "easeInOut" }} className="absolute inset-0">
-                  <Image src="/images/logo.png" alt="REO Developments Logo" width={scrolled ? 120 : 150} height={scrolled ? 35 : 45} className="object-contain" priority style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }} />
-                </motion.div>
-              </AnimatePresence>
-            </motion.div>
-          </Link>
+          {/* LEFT: FORM */}
+          <div className="p-10 md:p-14 bg-white">
+            <h2 className="text-3xl font-bold text-[#db071d] mb-6">
+              Get In Touch
+            </h2>
 
-          {/* Links */}
-          <div className={`hidden lg:flex items-center justify-center flex-1 gap-14 font-medium transition-colors duration-700 text-[18px] ${ scrolled ? "text-gray-800" : "text-white" }`}>
-            <Link href="/" className="hover:text-[#db071d] transition">Home</Link>
-            <Link href="/about" className="hover:text-[#db071d] transition">Who We Are</Link>
-            <Link href="/coming-soon" className="hover:text-[#db071d] transition">Projects</Link>
-            <Link href="/contact-us" className="hover:text-[#db071d] transition">Contact Us</Link>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Mobile Number
+                </label>
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  placeholder="Enter mobile number"
+                  value={form.phoneNumber}
+                  onChange={handleChange}
+                  required
+                  pattern="[0-9]{6,15}"
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Your Message
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  rows={5}
+                  value={form.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="bg-[#db071d] text-white font-semibold px-8 py-4 rounded-lg hover:bg-[#b00516] transition-all shadow-lg disabled:opacity-50"
+              >
+                {status === "loading" ? "SENDING..." : "SEND MESSAGE"}
+              </button>
+
+              {status === "success" && (
+                <p className="text-green-600 font-medium">
+                  ✅ Message sent successfully!
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-red-600 font-medium">
+                  ❌ Something went wrong. Please try again.
+                </p>
+              )}
+            </form>
           </div>
 
-          {/* Login */}
-          <div className="hidden lg:flex items-center flex-shrink-0">
-            <div className="relative" ref={dropdownRef}>
-              <Button onClick={() => setLoginOpen((prev) => !prev)} className={`rounded-lg px-7 py-2.5 transition-all duration-700 text-[17px] font-medium flex items-center gap-2 ${ scrolled ? "bg-[#db071d] text-white hover:bg-[#8b0010]" : "bg-[#db071d]/90 text-white hover:bg-[#db071d]" }`}>
-                Log In <ChevronDown className="w-4 h-4" />
-              </Button>
+          {/* RIGHT: INFO (Updated for clean white theme) */}
+          <div className="bg-white text-gray-800 p-10 md:p-14 flex flex-col justify-between border-l border-gray-200">
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-[#db071d]">
+                Contact Information
+              </h2>
+              <p className="text-gray-600 mb-10 leading-relaxed">
+                Reach us anytime — our team is here to assist with your real
+                estate investment goals.
+              </p>
 
-              <AnimatePresence>
-                {loginOpen && (
-                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }} className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 border border-gray-100">
-                    <Link href="/tenant-portal" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" onClick={() => setLoginOpen(false)}>Tenant Portal</Link>
-                    <Link href="/owner-portal" className="block px-4 py-2 text-gray-700 hover:bg-gray-100" onClick={() => setLoginOpen(false)}>Owner Portal</Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-[#f4d35e]/20 rounded-full text-[#db071d]">
+                    <FaEnvelope className="text-lg" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      Email Us
+                    </h4>
+                    <a
+                      href="mailto:support@reodevelop.com"
+                      className="text-gray-600 hover:text-[#db071d] transition"
+                    >
+                      support@reodevelop.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-[#f4d35e]/20 rounded-full text-[#db071d]">
+                    <FaGlobe className="text-lg" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      Website
+                    </h4>
+                    <a
+                      href="https://www.reodevelop.com"
+                      target="_blank"
+                      className="text-gray-600 hover:text-[#db071d] transition"
+                    >
+                      www.reodevelop.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-10 pt-10 border-t border-gray-200">
+              <h4 className="font-semibold text-[#db071d] mb-4">Follow Us</h4>
+              <div className="flex gap-4">
+                <a
+                  href="https://wa.me/+918436969369"
+                  target="_blank"
+                  className="p-3 bg-[#25D366] text-white rounded-full hover:scale-110 transition-transform shadow-md"
+                >
+                  <FaWhatsapp className="text-lg" />
+                </a>
+                <a
+                  href="mailto:support@reodevelop.com"
+                  className="p-3 bg-[#db071d] text-[white] rounded-full hover:scale-110 transition-transform shadow-md"
+                >
+                  <FaEnvelope className="text-lg" />
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>
-      </motion.nav>
-    </>
+      </section>
+
+      {/* ===== MAP SECTION ===== */}
+      <section className="px-6 pb-20 max-w-6xl mx-auto mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="rounded-2xl overflow-hidden shadow-2xl h-[450px] border-4 border-white"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.2277779755247!2d77.66694371526043!3d12.997731690838424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17e23422f449%3A0xf026ddf98b77e824!2sWorkFlo%20by%20OYO%20Ranka%20Junction!5e0!3m2!1sen!2sin!4v1730012345678!5m2!1sen!2sin"
+            className="w-full h-full border-0"
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="REO Developments Office"
+          ></iframe>
+        </motion.div>
+      </section>
+
+      <Footer />
+    </div>
   );
 };
 
-export default Navbar;
+export default ContactPage;
