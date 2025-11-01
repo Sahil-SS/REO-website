@@ -47,7 +47,7 @@ const EnquireNowButton = () => {
       } else {
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     }
   };
@@ -63,13 +63,13 @@ const EnquireNowButton = () => {
       {/* Floating Enquire Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed right-0 top-1/2 -translate-y-1/2 bg-[#db071d] text-white px-4 py-4 rounded-l-lg shadow-lg z-50 flex items-center gap-2 hover:bg-[#db071d] transition-colors cursor-pointer"
+        className="fixed right-0 top-[53%] -translate-y-1/2 bg-[#db071d] text-white px-3 py-3 rounded-l-lg shadow-lg z-50 flex items-center gap-1 hover:bg-[#8e000e] transition-colors cursor-pointer"
         initial={{ x: 100 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5, delay: 1 }}
-        whileHover={{ x: -5 }}
+        whileHover={{ x: -4 }}
       >
-        <span className="[writing-mode:vertical-rl] text-lg font-semibold tracking-wider">
+        <span className="[writing-mode:vertical-rl] text-sm font-semibold tracking-wider">
           Enquire Now
         </span>
       </motion.button>
@@ -93,37 +93,36 @@ const EnquireNowButton = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 300 }}
               transition={{ type: "spring", damping: 25 }}
-              className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 overflow-y-auto"
+              className="fixed right-0 top-0 h-full w-full max-w-sm bg-white shadow-2xl z-50 overflow-y-auto"
             >
-              <div className="p-6">
+              <div className="p-5">
                 {/* Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900">
+                <div className="flex items-center justify-between mb-5">
+                  <h2 className="text-xl font-bold text-gray-900">
                     Enquire <span className="text-[#db071d]">Now</span>
                   </h2>
                   <button
                     onClick={() => setIsOpen(false)}
                     className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                   >
-                    <X className="w-6 h-6 text-gray-600" />
+                    <X className="w-5 h-5 text-gray-600" />
                   </button>
                 </div>
 
-                {/* Subtitle */}
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 mb-5 text-sm">
                   Fill out the form below and our team will get back to you
                   within 24 hours.
                 </p>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3">
                   {/* Name Input */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                       Full Name *
                     </label>
                     <div className="relative">
-                      <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
                         type="text"
                         name="name"
@@ -131,18 +130,18 @@ const EnquireNowButton = () => {
                         onChange={handleChange}
                         required
                         placeholder="Enter your name"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                        className="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition text-sm"
                       />
                     </div>
                   </div>
 
                   {/* Email Input */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                       Email Address *
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
                         type="email"
                         name="email"
@@ -150,18 +149,18 @@ const EnquireNowButton = () => {
                         onChange={handleChange}
                         required
                         placeholder="your.email@example.com"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                        className="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition text-sm"
                       />
                     </div>
                   </div>
 
                   {/* Phone Input */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                       Phone Number *
                     </label>
                     <div className="relative">
-                      <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
                         type="tel"
                         name="phone"
@@ -169,27 +168,27 @@ const EnquireNowButton = () => {
                         onChange={handleChange}
                         required
                         pattern="[0-9]{10}"
-                        placeholder="10-digit mobile number"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                        placeholder="10-digit number"
+                        className="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition text-sm"
                       />
                     </div>
                   </div>
 
                   {/* Message Input */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
                       Your Message *
                     </label>
                     <div className="relative">
-                      <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                      <MessageSquare className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
                       <textarea
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        rows={4}
+                        rows={3}
                         placeholder="Tell us about your requirements..."
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition resize-none"
+                        className="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition text-sm resize-none"
                       />
                     </div>
                   </div>
@@ -198,7 +197,7 @@ const EnquireNowButton = () => {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="w-full bg-[#db071d] text-white py-3 rounded-lg font-semibold hover:bg-[#b00516] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-[#db071d] text-white py-2 rounded-md font-semibold text-sm hover:bg-[#b00516] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === "loading" ? "Sending..." : "Submit Enquiry"}
                   </button>
@@ -208,16 +207,16 @@ const EnquireNowButton = () => {
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-green-600 text-sm text-center font-medium"
+                      className="text-green-600 text-xs text-center font-medium"
                     >
-                      ✅ Enquiry submitted successfully! We'll contact you soon.
+                      ✅ Enquiry submitted successfully!
                     </motion.p>
                   )}
                   {status === "error" && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-red-600 text-sm text-center font-medium"
+                      className="text-red-600 text-xs text-center font-medium"
                     >
                       ❌ Something went wrong. Please try again.
                     </motion.p>
@@ -225,22 +224,8 @@ const EnquireNowButton = () => {
                 </form>
 
                 {/* Additional Info */}
-                <div className="mt-8 pt-6 border-t border-gray-200">
-                  <p className="text-sm text-gray-600 mb-2">
-                    <strong className="text-gray-900">
-                      Need immediate assistance?
-                    </strong>
-                  </p>
-                  {/* <p className="text-sm text-gray-600">
-                    Call us at:{" "}
-                    <a
-                      href="tel:+918436969369"
-                      className="text-[#db071d] hover:underline font-medium"
-                    >
-                      +91 84369 69369
-                    </a>
-                  </p> */}
-                  <p className="text-sm text-gray-600 mt-1">
+                <div className="mt-6 pt-4 border-t border-gray-200">
+                  <p className="text-xs text-gray-600">
                     Email:{" "}
                     <a
                       href="mailto:support@reodevelop.com"
