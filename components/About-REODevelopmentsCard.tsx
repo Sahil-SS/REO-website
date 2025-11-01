@@ -46,7 +46,7 @@ const WhoWeArePage = () => {
                 the expertise and resources required to help you achieve your investment 
                 objectives. Alongside our extensive experience with commercial and 
                 residential properties, we have a significant background in successfully 
-                managing challenging Class B and C urban properties.
+                managing challenging Class B and Class C urban properties.
               </p>
 
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
@@ -62,9 +62,9 @@ const WhoWeArePage = () => {
               </p>
             </div>
 
-            <div className="p-6 bg-gradient-to-r from-[#FFE5E5] to-[#FFD6D6] border-l-4 border-[#db071d] rounded-xl shadow-lg mt-4">
+            <div className="p-6 bg-linear-to-r from-[#FFE5E5] to-[#FFD6D6] border-l-4 border-[#db071d] rounded-xl shadow-lg mt-4">
               <p className="text-[#1C2B5B] font-medium leading-relaxed italic">
-                "We put the real in real estate."
+                &quot;We put the real in real estate.&quot;
               </p>
             </div>
           </div>
@@ -77,7 +77,7 @@ const WhoWeArePage = () => {
               fill
               className="object-cover w-full h-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent"></div>
           </div>
         </motion.div>
 

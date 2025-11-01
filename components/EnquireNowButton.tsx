@@ -1,56 +1,60 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Phone, User, MessageSquare } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Mail, Phone, User, MessageSquare } from "lucide-react";
 
 const EnquireNowButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
+    setStatus("loading");
 
     try {
       const formPayload = new FormData();
-      formPayload.append('name', formData.name);
-      formPayload.append('email', formData.email);
-      formPayload.append('phone', formData.phone);
-      formPayload.append('message', formData.message);
-      formPayload.append('access_key', '2756ba83-599a-443a-b5a1-1871d615f0db');
-      formPayload.append('subject', 'New Enquiry - REO Developments');
-      formPayload.append('from_name', formData.name);
+      formPayload.append("name", formData.name);
+      formPayload.append("email", formData.email);
+      formPayload.append("phone", formData.phone);
+      formPayload.append("message", formData.message);
+      formPayload.append("access_key", "2756ba83-599a-443a-b5a1-1871d615f0db");
+      formPayload.append("subject", "New Enquiry - REO Developments");
+      formPayload.append("from_name", formData.name);
 
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
         body: formPayload,
       });
 
       const result = await response.json();
 
       if (result.success) {
-        setStatus('success');
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        setStatus("success");
+        setFormData({ name: "", email: "", phone: "", message: "" });
         setTimeout(() => {
           setIsOpen(false);
-          setStatus('idle');
+          setStatus("idle");
         }, 2000);
       } else {
-        setStatus('error');
+        setStatus("error");
       }
     } catch (error) {
-      setStatus('error');
+      setStatus("error");
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -88,7 +92,7 @@ const EnquireNowButton = () => {
               initial={{ opacity: 0, x: 300 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 300 }}
-              transition={{ type: 'spring', damping: 25 }}
+              transition={{ type: "spring", damping: 25 }}
               className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 overflow-y-auto"
             >
               <div className="p-6">
@@ -107,7 +111,8 @@ const EnquireNowButton = () => {
 
                 {/* Subtitle */}
                 <p className="text-gray-600 mb-6">
-                  Fill out the form below and our team will get back to you within 24 hours.
+                  Fill out the form below and our team will get back to you
+                  within 24 hours.
                 </p>
 
                 {/* Form */}
@@ -192,14 +197,14 @@ const EnquireNowButton = () => {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    disabled={status === 'loading'}
+                    disabled={status === "loading"}
                     className="w-full bg-[#db071d] text-white py-3 rounded-lg font-semibold hover:bg-[#b00516] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {status === 'loading' ? 'Sending...' : 'Submit Enquiry'}
+                    {status === "loading" ? "Sending..." : "Submit Enquiry"}
                   </button>
 
                   {/* Status Messages */}
-                  {status === 'success' && (
+                  {status === "success" && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -208,7 +213,7 @@ const EnquireNowButton = () => {
                       ✅ Enquiry submitted successfully! We'll contact you soon.
                     </motion.p>
                   )}
-                  {status === 'error' && (
+                  {status === "error" && (
                     <motion.p
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -222,13 +227,27 @@ const EnquireNowButton = () => {
                 {/* Additional Info */}
                 <div className="mt-8 pt-6 border-t border-gray-200">
                   <p className="text-sm text-gray-600 mb-2">
-                    <strong className="text-gray-900">Need immediate assistance?</strong>
+                    <strong className="text-gray-900">
+                      Need immediate assistance?
+                    </strong>
                   </p>
-                  <p className="text-sm text-gray-600">
-                    Call us at: <a href="tel:+918436969369" className="text-[#db071d] hover:underline font-medium">+91 84369 69369</a>
-                  </p>
+                  {/* <p className="text-sm text-gray-600">
+                    Call us at:{" "}
+                    <a
+                      href="tel:+918436969369"
+                      className="text-[#db071d] hover:underline font-medium"
+                    >
+                      +91 84369 69369
+                    </a>
+                  </p> */}
                   <p className="text-sm text-gray-600 mt-1">
-                    Email: <a href="mailto:support@reodevelop.com" className="text-[#db071d] hover:underline font-medium">support@reodevelop.com</a>
+                    Email:{" "}
+                    <a
+                      href="mailto:support@reodevelop.com"
+                      className="text-[#db071d] hover:underline font-medium"
+                    >
+                      support@reodevelop.com
+                    </a>
                   </p>
                 </div>
               </div>
