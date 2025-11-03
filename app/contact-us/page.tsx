@@ -105,7 +105,7 @@ const ContactPage = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-white rounded-3xl shadow-[0_0_50px_-10px_rgba(219,7,29,0.8)] overflow-hidden grid lg:grid-cols-2 border border-[#db071d]/60"
+          className="bg-white rounded-3xl shadow-[0_0_50px_-10px_rgba(219,7,29,0.8)] overflow-hidden grid lg:grid-cols-2 border"
         >
           {/* LEFT: FORM */}
           <div className="p-10 md:p-14 bg-white">

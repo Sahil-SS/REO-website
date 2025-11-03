@@ -24,6 +24,29 @@ const TrustedCompanies = () => {
     { name: "Emami", logo: "/company-logo/emami.png" },
     { name: "Titan", logo: "/company-logo/titan.png" },
     { name: "HCL", logo: "/company-logo/hcl.png" },
+    
+    { name: "Novartis", logo: "/company-logo/novartis.png" },
+    { name: "ALSTOM", logo: "/company-logo/alstom.png" },
+    { name: "Axiom", logo: "/company-logo/axiom.png" },
+    { name: "Johnson & Johnson", logo: "/company-logo/jnj.png" },
+    { name: "Unisys", logo: "/company-logo/unisys.png" },
+    { name: "ACC Cement", logo: "/company-logo/acc.png" },
+    { name: "Eveready Industries", logo: "/company-logo/eveready.png" },
+    { name: "Lafarge Cement", logo: "/company-logo/lafarge.png" },
+    { name: "Exide", logo: "/company-logo/exide.png" },
+    { name: "Crompton Greaves", logo: "/company-logo/crompton.png" },
+    // { name: "Balmer Lawrie", logo: "/company-logo/balmerlawrie.png" },
+    { name: "Dr. Reddy's", logo: "/company-logo/drreddys.png" },
+    { name: "Hitachi", logo: "/company-logo/hitachi.png" },
+    { name: "UltraTech Cement", logo: "/company-logo/ultratech.png" },
+    { name: "TAFE", logo: "/company-logo/tafe.png" },
+    { name: "Supreme Industries", logo: "/company-logo/supreme.png" },
+    { name: "SAIL", logo: "/company-logo/sail.png" },
+    { name: "Ambuja Cement", logo: "/company-logo/ambuja.png" },
+    { name: "Kirloskar", logo: "/company-logo/kirloskar.png" },
+    { name: "Greenply", logo: "/company-logo/greenply.png" },
+    { name: "Himadri Speciality Chemical", logo: "/company-logo/himadri.png" },
+    { name: "Saregama", logo: "/company-logo/saregama.png" },
   ];
 
   return (
@@ -37,13 +60,14 @@ const TrustedCompanies = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 md:mb-12"
         >
-          <h1 className="text-4xl md:text-4xl font-bold text-gray-900 mb-2">
-            Trusted by Top Companies Across{" "}
-            <span className="text-[#db071d]">India</span>
-          </h1>
-          <p className="text-gray-600 text-sm md:text-base">
-            Our learners and professionals work with these industry leaders.
-          </p>
+<h1 className="text-4xl md:text-4xl font-bold text-gray-900 mb-2">
+  Some of the Largest Companies / Employers in{" "}
+  <span className="text-[#db071d]">Pan India</span>
+</h1>
+<p className="text-gray-600 text-sm md:text-base">
+  Trusted by top organizations that shape industries across the nation.
+</p>
+
         </motion.div>
 
         {/* Logo Grid */}

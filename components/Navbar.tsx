@@ -21,7 +21,10 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setLoginOpen(false);
         setPortalOpen(false);
       }
@@ -62,23 +65,23 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
       >
         <motion.div
           className="max-w-[1800px] mx-auto flex items-center justify-between px-6 md:px-14"
-          animate={{ height: scrolled ? "70px" : "85px" }}
+          animate={{ height: scrolled ? "56px" : "68px" }}
           transition={{ duration: 0.4 }}
         >
           {/* ---------- Logo ---------- */}
           <Link href="/" className="flex items-center shrink-0">
             <motion.div
               animate={{
-                width: scrolled ? 120 : 150,
-                height: scrolled ? 35 : 45,
+                width: scrolled ? 96 : 120,
+                height: scrolled ? 28 : 36,
               }}
               transition={{ duration: 0.3 }}
             >
               <Image
                 src="/images/logo.png"
                 alt="REO Developments Logo"
-                width={scrolled ? 120 : 150}
-                height={scrolled ? 35 : 45}
+                width={scrolled ? 96 : 120}
+                height={scrolled ? 28 : 36}
                 className={`object-contain transition-all duration-300 ${
                   scrolled ? "brightness-100" : "brightness-0 invert"
                 }`}
@@ -94,7 +97,11 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
             }`}
           >
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-[#db071d] transition">
+              <Link
+                key={link.href}
+                href={link.href}
+                className="hover:text-[#db071d] transition"
+              >
                 {link.label}
               </Link>
             ))}
@@ -138,7 +145,10 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
           </div>
 
           {/* ---------- Log In Button ---------- */}
-          <div className="hidden lg:flex items-center shrink-0 ml-8" ref={dropdownRef}>
+          <div
+            className="hidden lg:flex items-center shrink-0 ml-8"
+            ref={dropdownRef}
+          >
             <Button
               onClick={() => setLoginOpen((prev) => !prev)}
               className={`rounded-lg px-7 py-2.5 text-[17px] font-medium flex items-center gap-2 transition-all duration-300 ${
