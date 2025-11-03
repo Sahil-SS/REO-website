@@ -73,9 +73,9 @@ const ContactPage = () => {
           src="/images/contactus-hero.jpg"
           alt="Contact REO Developments"
           fill
-          className="object-cover brightness-125"
+          className="object-cover brightness-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black/90"></div>
 
         <div className="relative z-10 text-center text-white px-6">
           <motion.h1
@@ -90,7 +90,7 @@ const ContactPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-lg md:text-xl max-w-2xl mx-auto text-gray-100 font-light drop-shadow"
+            className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 font-light drop-shadow"
           >
             Get in touch with our experts to explore investment opportunities
             that redefine real estate.
@@ -98,24 +98,24 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* ===== UNIFIED CARD SECTION ===== */}
-      <section className="max-w-6xl mx-auto px-6 -mt-24 relative z-20">
+      {/* ===== CONTACT CARD (SMALLER) ===== */}
+      <section className="max-w-5xl mx-auto px-6 -mt-20 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-white rounded-3xl shadow-[0_0_50px_-10px_rgba(219,7,29,0.8)] overflow-hidden grid lg:grid-cols-2 border"
+          className="bg-white rounded-3xl shadow-[0_4px_30px_rgba(0,0,0,0.08)] overflow-hidden grid lg:grid-cols-2 border border-gray-100"
         >
           {/* LEFT: FORM */}
-          <div className="p-10 md:p-14 bg-white">
+          <div className="p-8 md:p-10 lg:p-12 bg-white">
             <h2 className="text-3xl font-bold text-[#db071d] mb-6">
               Get In Touch
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-600 mb-2">
                   Your Name
                 </label>
                 <input
@@ -125,12 +125,12 @@ const ContactPage = () => {
                   value={form.name}
                   onChange={handleChange}
                   required
-                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-600 mb-2">
                   Your Email
                 </label>
                 <input
@@ -140,12 +140,12 @@ const ContactPage = () => {
                   value={form.email}
                   onChange={handleChange}
                   required
-                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-600 mb-2">
                   Mobile Number
                 </label>
                 <input
@@ -156,29 +156,29 @@ const ContactPage = () => {
                   onChange={handleChange}
                   required
                   pattern="[0-9]{6,15}"
-                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-600 mb-2">
                   Your Message
                 </label>
                 <textarea
                   name="message"
                   placeholder="Message"
-                  rows={5}
+                  rows={4}
                   value={form.message}
                   onChange={handleChange}
                   required
-                  className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition resize-none"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#db071d] focus:border-[#db071d] outline-none transition resize-none"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="bg-[#db071d] text-white font-semibold px-8 py-4 rounded-lg hover:bg-[#b00516] transition-all shadow-lg disabled:opacity-50"
+                className="bg-gradient-to-r from-[#db071d] to-[#b00516] text-white font-semibold px-8 py-3 rounded-lg hover:scale-[1.03] transition-all shadow-md disabled:opacity-50"
               >
                 {status === "loading" ? "SENDING..." : "SEND MESSAGE"}
               </button>
@@ -196,20 +196,20 @@ const ContactPage = () => {
             </form>
           </div>
 
-          {/* RIGHT: INFO (Updated for clean white theme) */}
-          <div className="bg-white text-gray-800 p-10 md:p-14 flex flex-col justify-between border-l border-gray-200">
+          {/* RIGHT: INFO */}
+          <div className="bg-white text-gray-800 p-8 md:p-10 lg:p-12 flex flex-col justify-between border-l border-gray-200">
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-[#db071d]">
+              <h2 className="text-3xl font-bold mb-5 text-[#db071d]">
                 Contact Information
               </h2>
-              <p className="text-gray-600 mb-10 leading-relaxed">
+              <p className="text-gray-600 mb-8 leading-relaxed">
                 Reach us anytime — our team is here to assist with your real
                 estate investment goals.
               </p>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-[#f4d35e]/20 rounded-full text-[#db071d]">
+                  <div className="p-3 bg-[#db071d]/10 rounded-full text-[#db071d] flex items-center justify-center">
                     <FaEnvelope className="text-lg" />
                   </div>
                   <div>
@@ -226,7 +226,7 @@ const ContactPage = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-[#f4d35e]/20 rounded-full text-[#db071d]">
+                  <div className="p-3 bg-[#db071d]/10 rounded-full text-[#db071d] flex items-center justify-center">
                     <FaGlobe className="text-lg" />
                   </div>
                   <div>
@@ -245,19 +245,19 @@ const ContactPage = () => {
               </div>
             </div>
 
-            <div className="mt-10 pt-10 border-t border-gray-200">
+            <div className="mt-10 pt-8 border-t border-gray-200">
               <h4 className="font-semibold text-[#db071d] mb-4">Follow Us</h4>
               <div className="flex gap-4">
                 <a
                   href="https://wa.me/+918436969369"
                   target="_blank"
-                  className="p-3 bg-[#25D366] text-white rounded-full hover:scale-110 transition-transform shadow-md"
+                  className="p-3 bg-[#25D366] text-white rounded-full hover:scale-110 transition-all shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
                 >
                   <FaWhatsapp className="text-lg" />
                 </a>
                 <a
                   href="mailto:support@reodevelop.com"
-                  className="p-3 bg-[#db071d] text-[white] rounded-full hover:scale-110 transition-transform shadow-md"
+                  className="p-3 bg-[#db071d] text-white rounded-full hover:scale-110 transition-all shadow-[0_4px_12px_rgba(0,0,0,0.15)]"
                 >
                   <FaEnvelope className="text-lg" />
                 </a>
@@ -268,12 +268,12 @@ const ContactPage = () => {
       </section>
 
       {/* ===== MAP SECTION ===== */}
-      <section className="px-6 pb-20 max-w-6xl mx-auto mt-16">
+      <section className="px-6 pb-20 max-w-5xl mx-auto mt-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="rounded-2xl overflow-hidden shadow-2xl h-[450px] border-4 border-white"
+          className="rounded-2xl overflow-hidden shadow-lg h-[400px] border border-gray-200"
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.2277779755247!2d77.66694371526043!3d12.997731690838424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17e23422f449%3A0xf026ddf98b77e824!2sWorkFlo%20by%20OYO%20Ranka%20Junction!5e0!3m2!1sen!2sin!4v1730012345678!5m2!1sen!2sin"

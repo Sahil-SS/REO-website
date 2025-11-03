@@ -65,7 +65,7 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
       >
         <motion.div
           className="max-w-[1800px] mx-auto flex items-center justify-between px-6 md:px-14"
-          animate={{ height: scrolled ? "56px" : "68px" }}
+          animate={{ height: scrolled ? "50px" : "60px" }}
           transition={{ duration: 0.4 }}
         >
           {/* ---------- Logo ---------- */}
@@ -149,18 +149,19 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
             className="hidden lg:flex items-center shrink-0 ml-8"
             ref={dropdownRef}
           >
-            <Button
-              onClick={() => setLoginOpen((prev) => !prev)}
-              className={`rounded-lg px-7 py-2.5 text-[17px] font-medium flex items-center gap-2 transition-all duration-300 ${
-                scrolled
-                  ? "bg-[#db071d] text-white hover:bg-[#8b0010]"
-                  : "bg-[#db071d]/90 text-white hover:bg-[#db071d]"
-              }`}
-            >
-              Log In <ChevronDown className="w-4 h-4" />
-            </Button>
+            <Link href="/coming-soon">
+              <Button
+                className={`rounded-lg px-7 py-2.5 text-[17px] font-medium flex items-center gap-2 transition-all duration-300 ${
+                  scrolled
+                    ? "bg-[#db071d] text-white hover:bg-[#8b0010]"
+                    : "bg-[#db071d]/90 text-white hover:bg-[#db071d]"
+                }`}
+              >
+                Log In
+              </Button>
+            </Link>
 
-            <AnimatePresence>
+            {/* <AnimatePresence>
               {loginOpen && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
@@ -178,7 +179,7 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
                   </Link>
                 </motion.div>
               )}
-            </AnimatePresence>
+            </AnimatePresence> */}
           </div>
 
           {/* ---------- Mobile Hamburger ---------- */}
