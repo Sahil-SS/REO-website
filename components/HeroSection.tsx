@@ -39,9 +39,9 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-[100vh] md:h-[100vh] w-full overflow-hidden">
+    <section className="relative h-[100vh] sm:h-[100vh] w-full overflow-hidden">
       {/* ========================================================= */}
-      {/* 🟢 NEW: Background videos for desktop and mobile */}
+      {/* 🟢 Background Videos (Desktop & Mobile) */}
       {/* ========================================================= */}
       <video
         autoPlay
@@ -64,7 +64,7 @@ const HeroSection = () => {
       </video>
 
       {/* ========================================================= */}
-      {/* 🔴 OLD SYSTEM (Commented out) - Background slideshow */}
+      {/* 🔴 Old Slideshow (Commented Out) */}
       {/* ========================================================= */}
       {/*
       <AnimatePresence>
@@ -91,107 +91,73 @@ const HeroSection = () => {
       </AnimatePresence>
       */}
 
-      {/* Overlay for contrast */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
-
-      {/* Hero Text slightly below center */}
-      <motion.div
-        className="relative z-20 px-6 text-center top-2/3 -translate-y-1/2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        {/* <motion.h1
-          key={slides[current].tagline}
-          className="text-4xl md:text-5xl font-bold text-white whitespace-nowrap"
-        >
-          {slides[current].tagline}
-        </motion.h1> */}
-      </motion.div>
-
       {/* ========================================================= */}
-      {/* 🟦 NEW: Social Media Icons (Left side) */}
+      {/* 🔵 Social Media Icons (Left Side) */}
       {/* ========================================================= */}
-      <div className="absolute left-6 bottom-20 z-20 flex flex-col gap-5 text-white">
-        {/* WhatsApp */}
+      <div className="absolute left-3 sm:left-6 bottom-16 sm:bottom-20 z-20 flex flex-col gap-4 sm:gap-5 text-white">
         <a
-          href="https://wa.me/919876543210" // your phone number in international format
+          href="https://wa.me/919876543210"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-green-500 transition"
         >
-          <FaWhatsapp size={26} />
+          <FaWhatsapp size={22} className="sm:w-6 sm:h-6" />
         </a>
-
-        {/* Instagram */}
         <a
           href="https://www.instagram.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-pink-500 transition"
         >
-          <FaInstagram size={24} />
+          <FaInstagram size={20} className="sm:w-6 sm:h-6" />
         </a>
-
-        {/* Facebook */}
         <a
           href="https://www.facebook.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-blue-500 transition"
         >
-          <FaFacebookF size={22} />
+          <FaFacebookF size={18} className="sm:w-5 sm:h-5" />
         </a>
-
-        {/* LinkedIn */}
         <a
           href="https://www.linkedin.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-blue-400 transition"
         >
-          <FaLinkedinIn size={22} />
+          <FaLinkedinIn size={18} className="sm:w-5 sm:h-5" />
         </a>
-
-        {/* YouTube */}
         <a
           href="https://www.youtube.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-red-600 transition"
         >
-          <FaYoutube size={24} />
+          <FaYoutube size={20} className="sm:w-6 sm:h-6" />
         </a>
-
-        {/* Twitter (X) */}
         <a
           href="https://twitter.com/"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-sky-400 transition"
         >
-          <FaTwitter size={22} />
+          <FaTwitter size={18} className="sm:w-5 sm:h-5" />
         </a>
-
-        {/* Telegram */}
         <a
           href="https://t.me/yourusername"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-sky-500 transition"
         >
-          <FaTelegramPlane size={22} />
+          <FaTelegramPlane size={18} className="sm:w-5 sm:h-5" />
         </a>
       </div>
 
       {/* ========================================================= */}
-      {/* 🔽 Scroll Down Indicator (center bottom) */}
-      {/* ========================================================= */}
-      {/* ========================================================= */}
-      {/* 🔽 Smooth Continuous Down Arrow Indicator */}
+      {/* 🔽 Scroll Down Indicator */}
       {/* ========================================================= */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 cursor-pointer"
+        className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-20 cursor-pointer"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{
@@ -213,14 +179,16 @@ const HeroSection = () => {
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="w-10 h-10 hover:stroke-[#db071d] transition-colors duration-300"
+          className="w-8 h-8 sm:w-10 sm:h-10 hover:stroke-[#db071d] transition-colors duration-300"
         >
           <path d="M12 4v16M5 14l7 7 7-7" />
         </svg>
       </motion.div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-black/70 to-transparent z-10" />
+      {/* ========================================================= */}
+      {/* 🔳 Bottom Fade Overlay */}
+      {/* ========================================================= */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-black/60 to-transparent z-10" />
     </section>
   );
 };

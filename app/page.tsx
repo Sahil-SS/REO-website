@@ -16,6 +16,7 @@ import EnquireNowButton from "@/components/EnquireNowButton";
 import AboutREODevelopments from "@/components/About-REODevelopmentsCard";
 import TradingviewWidget from "@/components/tradingview-widget";
 import TrustedCompanies from "@/components/TrustedCompanies";
+import ReoLogoVideo from "@/components/ReoLogoVideo";
 
 const Page = () => {
   const [menuOpen, setMenuOpen] = useState(false); // 👈 Track navbar menu state
@@ -30,6 +31,7 @@ const Page = () => {
       {/* <Gallery /> */}
       {/* <AboutBrief /> */}
       {/* <KeyHighlights /> */}
+      <ReoLogoVideo />
       <BenefitsSection />
       <AboutREODevelopments />
       <PortfolioSection />
