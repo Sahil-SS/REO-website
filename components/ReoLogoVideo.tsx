@@ -32,7 +32,10 @@ export default function ReoLogoVideo() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover hidden md:block"
         >
-          <source src="/videos/reo-logo.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/docecjwz4/video/upload/f_auto,q_auto/v1762358110/reo-logo_ddzgsf.mp4"
+            type="video/mp4"
+          />
         </video>
 
         {/* 📱 Mobile Video */}
@@ -43,7 +46,10 @@ export default function ReoLogoVideo() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover md:hidden"
         >
-          <source src="/videos/reo-logo.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/docecjwz4/video/upload/f_auto,q_auto/v1762358110/reo-logo_ddzgsf.mp4"
+            type="video/mp4"
+          />
         </video>
       </motion.div>
 

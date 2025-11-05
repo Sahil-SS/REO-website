@@ -50,7 +50,10 @@ const HeroSection = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover hidden md:block"
       >
-        <source src="/videos/hero-desktop.mp4" type="video/mp4" />
+        <source
+          src="https://res.cloudinary.com/docecjwz4/video/upload/f_auto,q_auto/v1762358285/hero-desktop_pkx8qn.mp4"
+          type="video/mp4"
+        />
       </video>
 
       <video
@@ -60,7 +63,10 @@ const HeroSection = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover md:hidden"
       >
-        <source src="/videos/hero-mobile.mp4" type="video/mp4" />
+        <source
+          src="https://res.cloudinary.com/docecjwz4/video/upload/f_auto,q_auto/v1762358098/hero-mobile_qwinh3.mp4"
+          type="video/mp4"
+        />
       </video>
 
       {/* ========================================================= */}
