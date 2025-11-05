@@ -102,7 +102,7 @@ const HeroSection = () => {
       {/* ========================================================= */}
       <div className="absolute left-3 sm:left-6 bottom-16 sm:bottom-20 z-20 flex flex-col gap-4 sm:gap-5 text-white">
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/+918436969369"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-green-500 transition"
