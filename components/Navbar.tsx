@@ -37,6 +37,7 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
     { href: "/", label: "Home" },
     { href: "/about", label: "Who We Are" },
     { href: "/coming-soon", label: "Projects" },
+    { href: "/coming-soon", label: "Gallery" },
     { href: "/contact-us", label: "Contact Us" },
   ];
 
