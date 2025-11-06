@@ -150,7 +150,7 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
             className="hidden lg:flex items-center shrink-0 ml-8"
             ref={dropdownRef}
           >
-            <Link href="/coming-soon">
+            <Link href="https://investment-website-rosy.vercel.app/sign-in">
               <Button
                 className={`rounded-lg px-7 py-2.5 text-[17px] font-medium flex items-center gap-2 transition-all duration-300 ${
                   scrolled
@@ -300,7 +300,7 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
                   onClick={() => {
                     setMenuOpenState(false);
                     setMenuOpen?.(false);
-                    window.location.href = "/coming-soon";
+                    window.location.href = "https://investment-website-rosy.vercel.app/sign-in";
                   }}
                   className="w-full bg-[#db071d] text-white hover:bg-[#8b0010] text-[17px] py-2.5 rounded-lg"
                 >
