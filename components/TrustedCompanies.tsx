@@ -24,7 +24,6 @@ const TrustedCompanies = () => {
     { name: "Emami", logo: "/company-logo/emami.png" },
     { name: "Titan", logo: "/company-logo/titan.png" },
     { name: "HCL", logo: "/company-logo/hcl.png" },
-    
     { name: "Novartis", logo: "/company-logo/novartis.png" },
     { name: "ALSTOM", logo: "/company-logo/alstom.png" },
     { name: "Axiom", logo: "/company-logo/axiom.png" },
@@ -35,7 +34,6 @@ const TrustedCompanies = () => {
     { name: "Lafarge Cement", logo: "/company-logo/lafarge.png" },
     { name: "Exide", logo: "/company-logo/exide.png" },
     { name: "Crompton Greaves", logo: "/company-logo/crompton.png" },
-    // { name: "Balmer Lawrie", logo: "/company-logo/balmerlawrie.png" },
     { name: "Dr. Reddy's", logo: "/company-logo/drreddys.png" },
     { name: "Hitachi", logo: "/company-logo/hitachi.png" },
     { name: "UltraTech Cement", logo: "/company-logo/ultratech.png" },
@@ -60,14 +58,14 @@ const TrustedCompanies = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 md:mb-12"
         >
-<h1 className="text-4xl md:text-4xl font-bold text-gray-900 mb-2">
-  Some of the Largest Companies / Employers in{" "}
-  <span className="text-[#db071d]">Pan India</span>
-</h1>
-<p className="text-gray-600 text-sm md:text-base">
-  Trusted by top organizations that shape industries across the nation.
-</p>
-
+          <h1 className="text-4xl md:text-4xl font-bold text-gray-900 mb-2">
+            Some of the Largest Companies / Employers in{" "}
+            <span className="text-[#db071d]">Pan India</span>
+          </h1>
+          <p className="text-gray-600 text-sm md:text-base">
+            Trusted by top organizations that shape industries across the
+            nation.
+          </p>
         </motion.div>
 
         {/* Logo Grid */}
@@ -75,20 +73,20 @@ const TrustedCompanies = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.4 }}
           className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 sm:gap-6 md:gap-8 items-center justify-items-center mb-10"
         >
           {companies.map((company, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 1 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.02 }}
-              whileHover={{ scale: 1.36 }}
-              className="flex items-center justify-center transition-transform duration-300 ease-out"
+              whileHover={{ scale: 1.25 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              className="flex items-center justify-center cursor-pointer"
             >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 flex items-center justify-center cursor-pointer">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 flex items-center justify-center">
                 <Image
                   src={company.logo}
                   alt={`${company.name} logo`}
@@ -107,7 +105,7 @@ const TrustedCompanies = () => {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5 }}
           className="text-center text-base md:text-lg text-gray-700 italic"
         >
           The list of trusted partners is{" "}
@@ -117,13 +115,6 @@ const TrustedCompanies = () => {
           .
         </motion.p>
       </div>
-      {/* ✨ Elegant Gold Separator Bar
-      <motion.div
-        className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#D4AF37] via-[#F5C542] to-[#D4AF37]"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      /> */}
     </section>
   );
 };
