@@ -52,7 +52,7 @@ const HeroSection = () => {
         playsInline
         preload="auto"
         onTimeUpdate={(e) => {
-          const v = e.target;
+          const v = e.target as HTMLVideoElement;
           if (v.duration - v.currentTime < 0.25) {
             v.currentTime = 0;
             v.play();
@@ -74,7 +74,7 @@ const HeroSection = () => {
         playsInline
         preload="auto"
         onTimeUpdate={(e) => {
-          const v = e.target;
+          const v = e.target as HTMLVideoElement;
           if (v.duration - v.currentTime < 0.25) {
             v.currentTime = 0;
             v.play();
