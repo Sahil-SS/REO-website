@@ -41,126 +41,82 @@ const HeroSection = () => {
   return (
     <section className="relative h-[100vh] sm:h-[100vh] w-full overflow-hidden">
       {/* ========================================================= */}
-      {/* 🟢 Background Videos (Desktop & Mobile) */}
+      {/* BACKGROUND VIDEOS */}
       {/* ========================================================= */}
+
+      {/* DESKTOP VIDEO */}
       <video
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
+        onTimeUpdate={(e) => {
+          const v = e.target;
+          if (v.duration - v.currentTime < 0.25) {
+            v.currentTime = 0;
+            v.play();
+          }
+        }}
         className="absolute inset-0 w-full h-full object-cover hidden md:block"
       >
         <source
-          src="https://res.cloudinary.com/docecjwz4/video/upload/f_auto,q_auto/v1762358285/hero-desktop_pkx8qn.mp4"
+          src="https://res.cloudinary.com/docecjwz4/video/upload/f_auto,vc_auto,q_auto:best/reo_main_tjgp0i.mp4"
           type="video/mp4"
         />
       </video>
 
+      {/* MOBILE VIDEO */}
       <video
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
+        onTimeUpdate={(e) => {
+          const v = e.target;
+          if (v.duration - v.currentTime < 0.25) {
+            v.currentTime = 0;
+            v.play();
+          }
+        }}
         className="absolute inset-0 w-full h-full object-cover md:hidden"
       >
         <source
-          src="https://res.cloudinary.com/docecjwz4/video/upload/f_auto,q_auto/v1762358098/hero-mobile_qwinh3.mp4"
+          src="https://res.cloudinary.com/docecjwz4/video/upload/f_auto,vc_auto,q_auto:best/reo_mobile_p5osyw.mp4"
           type="video/mp4"
         />
       </video>
 
       {/* ========================================================= */}
-      {/* 🔴 Old Slideshow (Commented Out) */}
-      {/* ========================================================= */}
-      {/*
-      <AnimatePresence>
-        {slides.map((slide, index) =>
-          index === current ? (
-            <motion.div
-              key={index}
-              className="absolute inset-0 z-0"
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.05 }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-              style={{
-                backgroundImage: `url(${slide.src})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                width: "100%",
-                height: "100%",
-              }}
-            />
-          ) : null
-        )}
-      </AnimatePresence>
-      */}
-
-      {/* ========================================================= */}
-      {/* 🔵 Social Media Icons (Left Side) */}
+      {/* SOCIAL ICONS LEFT SIDE */}
       {/* ========================================================= */}
       <div className="absolute left-3 sm:left-6 bottom-16 sm:bottom-20 z-20 flex flex-col gap-4 sm:gap-5 text-white">
-        <a
-          href="https://wa.me/+918436969369"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-green-500 transition"
-        >
+        <a href="https://wa.me/+918436969369" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition">
           <FaWhatsapp size={22} className="sm:w-6 sm:h-6" />
         </a>
-        <a
-          href="https://www.instagram.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-pink-500 transition"
-        >
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition">
           <FaInstagram size={20} className="sm:w-6 sm:h-6" />
         </a>
-        <a
-          href="https://www.facebook.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-500 transition"
-        >
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition">
           <FaFacebookF size={18} className="sm:w-5 sm:h-5" />
         </a>
-        <a
-          href="https://www.linkedin.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-400 transition"
-        >
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">
           <FaLinkedinIn size={18} className="sm:w-5 sm:h-5" />
         </a>
-        <a
-          href="https://www.youtube.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-red-600 transition"
-        >
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" className="hover:text-red-600 transition">
           <FaYoutube size={20} className="sm:w-6 sm:h-6" />
         </a>
-        <a
-          href="https://twitter.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-sky-400 transition"
-        >
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition">
           <FaTwitter size={18} className="sm:w-5 sm:h-5" />
         </a>
-        <a
-          href="https://t.me/yourusername"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-sky-500 transition"
-        >
+        <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-sky-500 transition">
           <FaTelegramPlane size={18} className="sm:w-5 sm:h-5" />
         </a>
       </div>
 
       {/* ========================================================= */}
-      {/* 🔽 Scroll Down Indicator */}
+      {/* SCROLL DOWN INDICATOR */}
       {/* ========================================================= */}
       <motion.div
         className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-20 cursor-pointer"
@@ -192,7 +148,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* ========================================================= */}
-      {/* 🔳 Bottom Fade Overlay */}
+      {/* BOTTOM FADE OVERLAY */}
       {/* ========================================================= */}
       <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-linear-to-t from-black/60 to-transparent z-10" />
     </section>
