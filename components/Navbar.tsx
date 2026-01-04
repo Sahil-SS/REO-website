@@ -66,23 +66,23 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
       >
         <motion.div
           className="max-w-[1800px] mx-auto flex items-center justify-between px-6 md:px-14"
-          animate={{ height: scrolled ? "50px" : "60px" }}
+          animate={{ height: scrolled ? "60px" : "70px" }}
           transition={{ duration: 0.4 }}
         >
           {/* ---------- Logo ---------- */}
           <Link href="/" className="flex items-center shrink-0">
             <motion.div
               animate={{
-                width: scrolled ? 96 : 120,
-                height: scrolled ? 28 : 36,
+                width: scrolled ? 115 : 145,
+                height: scrolled ? 34 : 42,
               }}
               transition={{ duration: 0.3 }}
             >
               <Image
                 src="/images/logo.png"
                 alt="REO Developments Logo"
-                width={scrolled ? 96 : 120}
-                height={scrolled ? 28 : 36}
+                width={scrolled ? 115 : 145}
+                height={scrolled ? 34 : 42}
                 className={`object-contain transition-all duration-300 ${
                   scrolled ? "brightness-100" : "brightness-0 invert"
                 }`}
@@ -161,26 +161,6 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
                 Log In
               </Button>
             </Link>
-
-            {/* <AnimatePresence>
-              {loginOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 border border-gray-100"
-                >
-                  <Link
-                    href="/coming-soon"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    onClick={() => setLoginOpen(false)}
-                  >
-                    User Login
-                  </Link>
-                </motion.div>
-              )}
-            </AnimatePresence> */}
           </div>
 
           {/* ---------- Mobile Hamburger ---------- */}
@@ -227,8 +207,8 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
                 <Image
                   src="/images/logo.png"
                   alt="Logo"
-                  width={120}
-                  height={35}
+                  width={145}
+                  height={42}
                   className="object-contain"
                 />
                 <button
@@ -300,7 +280,8 @@ const Navbar = ({ setMenuOpen }: { setMenuOpen?: (open: boolean) => void }) => {
                   onClick={() => {
                     setMenuOpenState(false);
                     setMenuOpen?.(false);
-                    window.location.href = "https://investment-website-rosy.vercel.app/sign-in";
+                    window.location.href =
+                      "https://investment-website-rosy.vercel.app/sign-in";
                   }}
                   className="w-full bg-[#db071d] text-white hover:bg-[#8b0010] text-[17px] py-2.5 rounded-lg"
                 >
