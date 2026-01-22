@@ -22,6 +22,24 @@ const testimonials = [
     image: "/users/user3.jpg",
     text: "Thanks to REO, my rental property portfolio is thriving! The passive income has exceeded my expectations, and your team made the entire process seamless. Highly recommend for anyone looking to maximize their real estate investments!",
   },
+  {
+    name: "Puppi Kumari",
+    role: "Muzffarpur, Bihar",
+    image: "/users/user4.jpg",
+    text: "REO Real Estate Opportunity ke saath mera experience bahut hi achha raha. Plot kharidne ki poori process transparent, smooth aur well-managed thi. Team ne har step par proper guidance di aur saare documents clearly samjhaaye. Location, planning aur commitment sab kuch promise ke mutabik mila. Mujhe apni investment par poora bharosa hai aur main REO Real Estate ko ek trustworthy aur professional real estate company ke roop mein recommend karti hoon.",
+  },
+  {
+    name: "Subodh Kumar ",
+    role: "New Delhi, India",
+    image: "/users/user5.jpg",
+    text: "I am extremely satisfied with my decision to purchase a plot through REO. From the initial consultation to final documentation, the team was supportive, knowledgeable, and transparent. They ensured all legal and procedural aspects were handled smoothly. I would confidently recommend REO to anyone looking for a secure and reliable real estate investment.",
+  },
+  {
+    name: "Tuktuki",
+    role: "Kolkata, West Bengal ",
+    image: "/users/user6.jpg",
+    text: "Zameen ya plot mein invest karte waqt sabse bada sawal suraksha (security) ka hota hai. Reo Company ne mujhe har step par guide kiya aur poore process ko bahut aasaan banaya. Agar aap apne plot par achha return aur bharosa chahte hain, toh Reo Company ek perfect choice hai.",
+  },
 ];
 
 const Testimonials = () => {
